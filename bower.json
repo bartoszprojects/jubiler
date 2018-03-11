@@ -1,0 +1,18 @@
+{
+  "name": "slojewski.pl",
+  "description": "website",
+  "main": "",
+  "authors": [
+    "Bartosz Lech"
+  ],
+  "license": "MIT",
+  "homepage": "www.bartoszlech.pl",
+
+  "dependencies": {
+    "angular": "~1.6.5",
+    "angular-material": "~1.0.6",
+    "angular-ui-router": "~0.3.1",
+    "angular-animate" : "~1.6.4",
+    "jquery": ""
+  }
+}
