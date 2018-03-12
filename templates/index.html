@@ -12,6 +12,7 @@
 
 <div id="container">
     <nav id="main_navbar">
+
         <ul>
             <li><a>Strona Główna</a></li>
             <li><a>O firmie</a></li>
@@ -30,11 +31,11 @@
                     <img src="{% static 'images/slider_logo.png' %}" />
                 </div>
                 <div id="slider_text">
-                    <p> fdsafdas fdasf dasfdsa fdsafdasfda sfdasfdsa fdsafdasfd asfdasfdsa</p>
+                    <p> {{ slides.text }}</p>
                 </div>
             </div>
             <div id="slider_baner">
-                <p>Jubiler - profesjonalna obróbka biżuterii w Warszawie</p>
+                 <p>{{ slides.baner }}</p>
             </div>
         </div>
 
@@ -43,7 +44,9 @@
 
     </div>
     <div id="products">
-
+        <ul>
+            <li></li>
+        </ul>
     </div>
     <div id="contact">
 
