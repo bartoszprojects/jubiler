@@ -146,4 +146,25 @@ body, p, a, input, textarea, button {
       font-size: 12px;
       color: #4f4f4f; }
 
+#footer {
+  float: left;
+  width: 100%;
+  border-top: 0.6px solid #b5bec4;
+  padding-top: 15px;
+  margin-bottom: 50px; }
+  #footer p {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 2px;
+    margin: 13px 0 5px 0; }
+  #footer #footer_fb_iframe {
+    margin: 0 auto;
+    width: 340px; }
+  #footer #footer_line {
+    width: 70px;
+    height: 0.6px;
+    margin: 2px auto;
+    background: #b1b7bc; }
+
 /*# sourceMappingURL=main.css.map */
