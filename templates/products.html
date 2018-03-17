@@ -1,0 +1,23 @@
+<div ng-include="'navbar.html'"></div>
+
+<div ng-controller="productsController">
+
+    <div class="products" ng-controller="miniproducstController">
+        <h4>Ostatnio dodane: </h4>
+        <ul>
+            <li ng-repeat="product in products">
+                <img src="{{ product.image }}"/>
+            </li>
+        </ul>
+    </div>
+
+    <div class="products all_products" ng-controller="productsController">
+        <h4>Wszystkie produkty: </h4>
+        <ul>
+            <li ng-repeat="product in products">
+                <img src="{{ product.image }}"/>
+            </li>
+        </ul>
+    </div>
+
+</div>

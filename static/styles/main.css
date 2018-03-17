@@ -53,11 +53,11 @@ body, p, a, input, textarea, button {
       color: white;
       font-weight: bold; }
 
-#offer {
+.offer {
   width: 100%;
   height: auto;
   float: left; }
-  #offer #offer_ind {
+  .offer .offer_ind {
     width: 100%;
     float: left;
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,f4e0d9+0,ffffff+99,ffffff+100,ffffff+100,ffffff+101 */
@@ -66,17 +66,17 @@ body, p, a, input, textarea, button {
     background: -webkit-linear-gradient(left, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
     background: linear-gradient(to right, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=1 ); }
-    #offer #offer_ind #offer_ind_left {
+    .offer .offer_ind .offer_ind_left {
       float: left;
       width: 50%;
       height: 100%; }
-      #offer #offer_ind #offer_ind_left #offer_ind_left_box {
+      .offer .offer_ind .offer_ind_left .offer_ind_left_box {
         width: 70%;
         height: 90%;
         background: white;
         float: left;
         margin: 10px 10px 10px 10px; }
-        #offer #offer_ind #offer_ind_left #offer_ind_left_box button {
+        .offer .offer_ind .offer_ind_left .offer_ind_left_box button {
           background: #7c8ea4;
           border: none;
           color: white;
@@ -88,75 +88,75 @@ body, p, a, input, textarea, button {
           font-weight: bold;
           font-size: 12px;
           letter-spacing: 0.5px; }
-        #offer #offer_ind #offer_ind_left #offer_ind_left_box #offer_ind_left_box_img {
+        .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_img {
           width: 100%;
           height: 40%;
           float: left; }
-          #offer #offer_ind #offer_ind_left #offer_ind_left_box #offer_ind_left_box_img p {
+          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_img p {
             text-align: center; }
-          #offer #offer_ind #offer_ind_left #offer_ind_left_box #offer_ind_left_box_img img {
+          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_img img {
             height: 100%;
             width: 200px; }
-        #offer #offer_ind #offer_ind_left #offer_ind_left_box #offer_ind_left_box_text {
+        .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text {
           width: 100%;
           height: 60%;
           float: left;
           padding-bottom: 20px; }
-          #offer #offer_ind #offer_ind_left #offer_ind_left_box #offer_ind_left_box_text p {
+          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text p {
             padding: 0 25px 10px 25px;
             text-align: center;
             font-weight: bold;
             font-size: 13px; }
-          #offer #offer_ind #offer_ind_left #offer_ind_left_box #offer_ind_left_box_text h4 {
+          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text h4 {
             text-align: center;
             font-weight: bold;
             margin: 1px; }
-    #offer #offer_ind #offer_ind_right {
+    .offer .offer_ind .offer_ind_right {
       float: left;
       height: 360px;
       width: 50%; }
-      #offer #offer_ind #offer_ind_right #slider {
+      .offer .offer_ind .offer_ind_right .slider {
         width: 80%;
         height: 80%;
         margin-top: 10%; }
-        #offer #offer_ind #offer_ind_right #slider .slide {
+        .offer .offer_ind .offer_ind_right .slider .slide {
           width: 100%;
           height: 100%;
           position: relative; }
-          #offer #offer_ind #offer_ind_right #slider .slide .swap-animation {
+          .offer .offer_ind .offer_ind_right .slider .slide .swap-animation {
             position: absolute;
             max-width: 300px;
             height: 100%;
             left: 0;
             right: 0;
             margin: 0 auto; }
-            #offer #offer_ind #offer_ind_right #slider .slide .swap-animation.ng-enter, #offer #offer_ind #offer_ind_right #slider .slide .swap-animation.ng-leave {
-              transition: 0.7s linear all; }
-            #offer #offer_ind #offer_ind_right #slider .slide .swap-animation.ng-enter {
+            .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-enter, .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-leave {
+              transition: 0.3s linear all; }
+            .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-enter {
               opacity: 0; }
-            #offer #offer_ind #offer_ind_right #slider .slide .swap-animation.ng-enter-active {
+            .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-enter-active {
               opacity: 1; }
-            #offer #offer_ind #offer_ind_right #slider .slide .swap-animation.ng-leave {
+            .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-leave {
               opacity: 1; }
-            #offer #offer_ind #offer_ind_right #slider .slide .swap-animation.ng-leave-active {
+            .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-leave-active {
               opacity: 0; }
-        #offer #offer_ind #offer_ind_right #slider #slider-left, #offer #offer_ind #offer_ind_right #slider #slider-right {
+        .offer .offer_ind .offer_ind_right .slider .slider-left, .offer .offer_ind .offer_ind_right .slider #slider-right {
           position: absolute;
           height: 35px;
           width: 35px;
           border: none; }
-        #offer #offer_ind #offer_ind_right #slider #slider-left {
+        .offer .offer_ind .offer_ind_right .slider .slider-left {
           top: 50%;
           left: 0;
           background: url("../images/arrow-left.png") no-repeat;
           background-size: 90%; }
-        #offer #offer_ind #offer_ind_right #slider #slider-right {
+        .offer .offer_ind .offer_ind_right .slider .slider-right {
           top: 50%;
           left: 95%;
           background: url("../images/arrow-right.png") no-repeat;
           background-size: 90%; }
 
-#products {
+.products {
   width: 100%;
   height: 300px;
   float: left;
@@ -165,17 +165,19 @@ body, p, a, input, textarea, button {
   background: -webkit-linear-gradient(left, #1e5799 0%, #207cca 0%, #dde1e6 0%, white 100%, white 100%, #207cca 100%);
   background: linear-gradient(to right, #1e5799 0%, #207cca 0%, #dde1e6 0%, white 100%, white 100%, #207cca 100%);
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#207cca',GradientType=1 ); }
-  #products .products_button {
+  .products h4 {
+    text-align: center; }
+  .products .products_button {
     width: 100%;
     display: flex; }
-  #products button {
+  .products button {
     margin: auto;
     background: rgba(255, 255, 255, 0.8);
     padding: 10px 25px 10px 25px;
     border: 0.6px solid #d8c1ba;
     font-size: 12px;
     color: #4f4f4f; }
-  #products ul {
+  .products ul {
     list-style-type: none;
     padding: 0;
     margin-top: 10px;
@@ -183,7 +185,7 @@ body, p, a, input, textarea, button {
     display: flex;
     flex-direction: row;
     justify-content: center; }
-    #products ul li {
+    .products ul li {
       display: flex;
       padding: 5px;
       width: 15%;
@@ -191,10 +193,10 @@ body, p, a, input, textarea, button {
       border: 0.6px solid #d8c1ba;
       border-right: none;
       background: rgba(255, 255, 255, 0.7); }
-      #products ul li img {
+      .products ul li img {
         height: 100%;
         margin: 0 auto; }
-    #products ul li:nth-child(5) {
+    .products ul li:nth-child(5) {
       border-right: 0.6px solid #d8c1ba; }
 
 #contact {
@@ -267,5 +269,18 @@ body, p, a, input, textarea, button {
     height: 0.6px;
     margin: 2px auto;
     background: #b1b7bc; }
+
+/************************************ /products *********************************** */
+.all_products {
+  height: 1000px; }
+  .all_products ul {
+    display: block; }
+    .all_products ul li {
+      float: left;
+      padding: 10px;
+      margin: 5px;
+      border-right: 0.6px solid #d8c1ba; }
+      .all_products ul li img {
+        max-width: 90%; }
 
 /*# sourceMappingURL=main.css.map */

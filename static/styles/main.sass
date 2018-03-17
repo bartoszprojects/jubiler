@@ -55,14 +55,11 @@ body, p, a, input, textarea, button
       font-size: 16px
       color: white
       font-weight: bold
-
-
-
-#offer
+.offer
   width: 100%
   height: auto
   float: left
-  #offer_ind
+  .offer_ind
     width: 100%
     float: left
       /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,f4e0d9+0,ffffff+99,ffffff+100,ffffff+100,ffffff+101 */
@@ -71,11 +68,11 @@ body, p, a, input, textarea, button
     background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(244,224,217,1) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 101%) /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(244,224,217,1) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 101%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=1 ) /* IE6-9 */
-    #offer_ind_left
+    .offer_ind_left
       float: left
       width: 50%
       height: 100%
-      #offer_ind_left_box
+      .offer_ind_left_box
         width: 70%
         height: 90%
         background: white
@@ -93,7 +90,7 @@ body, p, a, input, textarea, button
           font-weight: bold
           font-size: 12px
           letter-spacing: 0.5px
-        #offer_ind_left_box_img
+        .offer_ind_left_box_img
           width: 100%
           height: 40%
           float: left
@@ -102,7 +99,7 @@ body, p, a, input, textarea, button
           img
             height: 100%
             width: 200px
-        #offer_ind_left_box_text
+        .offer_ind_left_box_text
           width: 100%
           height: 60%
           float: left
@@ -116,11 +113,11 @@ body, p, a, input, textarea, button
             text-align: center
             font-weight: bold
             margin: 1px
-    #offer_ind_right
+    .offer_ind_right
       float: left
       height: 360px
       width: 50%
-      #slider
+      .slider
         width: 80%
         height: 80%
         margin-top: 10%
@@ -136,7 +133,7 @@ body, p, a, input, textarea, button
             right: 0
             margin: 0 auto
             &.ng-enter, &.ng-leave
-              transition: 0.7s linear all
+              transition: 0.3s linear all
             &.ng-enter
               opacity: 0
             &.ng-enter-active
@@ -145,30 +142,23 @@ body, p, a, input, textarea, button
               opacity: 1
             &.ng-leave-active
               opacity: 0
-        #slider-left, #slider-right
+        .slider-left, #slider-right
           position: absolute
           height: 35px
           width: 35px
           border: none
-        #slider-left
+        .slider-left
           top: 50%
           left: 0
           background: url("../images/arrow-left.png") no-repeat
           background-size: 90%
-        #slider-right
+        .slider-right
           top: 50%
           left: 95%
           background: url("../images/arrow-right.png") no-repeat
           background-size: 90%
 
-
-
-
-
-
-
-
-#products
+.products
   width: 100%
   height: 300px
   float: left
@@ -177,6 +167,8 @@ body, p, a, input, textarea, button
   background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(32,124,202,1) 0%,rgba(221,225,230,1) 0%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(32,124,202,1) 100%) /* Chrome10-25,Safari5.1-6 */
   background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(32,124,202,1) 0%,rgba(221,225,230,1) 0%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(32,124,202,1) 100%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#207cca',GradientType=1 ) /* IE6-9 */
+  h4
+    text-align: center
   .products_button
     width: 100%
     display: flex
@@ -281,5 +273,16 @@ body, p, a, input, textarea, button
     margin: 2px auto
     background: #b1b7bc
 
+/************************************ /products ************************************/
 
-
+.all_products
+  height: 1000px
+  ul
+    display: block
+    li
+      float: left
+      padding: 10px
+      margin: 5px
+      border-right: 0.6px solid #d8c1ba
+      img
+        max-width: 90%

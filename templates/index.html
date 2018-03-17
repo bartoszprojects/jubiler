@@ -1,57 +1,46 @@
-{% load staticfiles %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Jubiler Słojewski</title>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200" rel="stylesheet">
-    <script src="{% static 'bower_components/angular/angular.js' %}"></script>
-    <script src="{% static 'bower_components/angular-animate/angular-animate.js' %}"></script>
-    <script src="{% static 'bower_components/jquery/dist/jquery.js' %}"></script>
-    <script src="{% static 'scripts/main.js' %}"></script>
-    <link rel="stylesheet" type="text/css" href="{% static 'styles/main.css' %}"/>
+    <script src="../static/bower_components/angular/angular.js"></script>
+    <script src="../static/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="../static/bower_components/jquery/dist/jquery.js"></script>
+    <script src="../static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <link rel="stylesheet" type="text/css" href="../static/styles/main.css"/>
 </head>
 <body ng-app="app">
 
-<div id="container">
-    <nav id="main_navbar">
+<div id="container" ui-view>
+   <div ng-include="'navbar.html'"></div>
 
-        <ul>
-            <li><a>Strona Główna</a></li>
-            <li><a>O firmie</a></li>
-            <li><a>Produkty</a></li>
-            <li><a>Usługi</a></li>
-            <li><a>Galeria</a></li>
-            <li><a>Kontakt</a></li>
-        </ul>
-    </nav>
-    <div id="main_slider">
-
+    <div id="main_slider" ng-controller="mainSliderController">
         <div id="slide">
-            <img src="{% static 'images/slider1.jpg' %}"/>
+            <img src="../static/images/slider1.jpg"/>
             <div id="slider_logo_text">
                 <div id="slider_logo">
-                    <img src="{% static 'images/slider_logo.png' %}"/>
+                    <img src="../static/images/slider_logo.png"/>
                 </div>
                 <div id="slider_text">
-                    <p> {{ slides.text }}</p>
+                    <p> {{ text }}</p>
                 </div>
             </div>
             <div id="slider_baner">
-                <p>{{ slides.baner }}</p>
+                <p>{{ baner }}</p>
             </div>
         </div>
 
     </div>
-    <div id="offer">
-        <div id="offer_ind">
-            <div id="offer_ind_left">
-                <div id="offer_ind_left_box">
-                    <div id="offer_ind_left_box_img">
+    <div class="offer">
+        <div class="offer_ind">
+            <div class="offer_ind_left">
+                <div class="offer_ind_left_box">
+                    <div class="offer_ind_left_box_img">
                         <p>
-                            <img src="{% static 'images/neck_mini.png' %}"/></p>
+                            <img src="../static/images/neck_mini.png"/></p>
                     </div>
-                    <div id="offer_ind_left_box_text">
+                    <div class="offer_ind_left_box_text">
                         <h4>Biżuteria na zamówienie</h4>
                         <p>Oferujemy wykonanie bizuterii na specjalne
                             zamówienie klienta. Po ustaleniu projektu wspólnie
@@ -64,79 +53,81 @@
                 </div>
 
             </div>
-            <div id="offer_ind_right">
-                {% verbatim %}
-                <div id="slider" ng-controller="MiniSliderIndividual">
+            <div class="offer_ind_right">
+
+                <div class="slider" ng-controller="MiniSliderIndividual">
                     <div class="slide">
                         <div class="center">
                             <img class="swap-animation" ng-animate-swap="temp" src="{{ slajd }}"/>
-                            <button id="slider-right" ng-click="nextSlide()"></button>
-                            <button id="slider-left" ng-click="previousSlide()"></button>
+                            <button class="slider-right" ng-click="nextSlide()"></button>
+                            <button class="slider-left" ng-click="previousSlide()"></button>
                         </div>
 
 
                     </div>
-                    {% endverbatim %}
+
                 </div>
             </div>
         </div>
 
-        <div id="products">
-            <ul>
-                {% for elem in products_mini %}
-                <li>
-                    <img src="{{ elem.image.url }}"/>
-                </li>
-                {% endfor %}
 
-            </ul>
-            <div class="products_button">
-                <button>wszystkie produkty ...</button>
-            </div>
 
-        </div>
-        <div id="contact">
-            <div id="contact_info">
-                <p>Pracownia Jubilerska</p>
-                <p>Damian Słojewski Ds Group</p>
-                <p style="height: 10px;"></p>
-                <p>ul.Antalla 5 03-126 Warszawa </p>
-                <p>tel.517-252-047</p>
-                <p style="height: 10px"></p>
-                <p>e-mail: jubiler@slojewski.pl</p>
-                <p>Godziny Otwarcia </p>
-                <p>Pon. - Pt. 11-19 Sob. 11-14</p>
-            </div>
-            <div id="contact_form">
-
-                <form>
-                    <input type="text" name="name" size="40" maxlength="255" required="" id="id_name"
-                           placeholder="Imie i nazwisko">
-
-                    <input type="text" name="email" size="40" required="" id="id_email" placeholder="Email">
-
-                    <input type="number" name="phone" required="" id="id_phone" placeholder="Telefon">
-
-                    <textarea name="msg_content" cols="40" rows="10" required="" id="id_msg_content"
-                              placeholder="treść wiadomośći..."></textarea>
-                    <input type="submit" class="submit_button" value="wyślij">
-
-                </form>
-            </div>
-
-        </div>
-        <div id="footer">
-
-            <div id="footer_fb_iframe">
-                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjubilerslojewski%2F&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
-                        width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
-                        allowTransparency="true"></iframe>
-            </div>
-            <p>www.slojewski.pl</p>
-            <div id="footer_line"></div>
-        </div>
     </div>
+    <div class="products" ng-controller="miniproducstController">
+        <ul>
+            <li ng-repeat="product in products">
+                <img src="{{ product.image }}"/>
+            </li>
 
+        </ul>
+        <div class="products_button">
+            <button>wszystkie produkty ...</button>
+        </div>
+
+    </div>
+    <div id="contact">
+        <div id="contact_info">
+            <p>Pracownia Jubilerska</p>
+            <p>Damian Słojewski Ds Group</p>
+            <p style="height: 10px;"></p>
+            <p>ul.Antalla 5 03-126 Warszawa </p>
+            <p>tel.517-252-047</p>
+            <p style="height: 10px"></p>
+            <p>e-mail: jubiler@slojewski.pl</p>
+            <p>Godziny Otwarcia </p>
+            <p>Pon. - Pt. 11-19 Sob. 11-14</p>
+        </div>
+        <div id="contact_form">
+
+            <form>
+                <input type="text" name="name" size="40" maxlength="255" required="" id="id_name"
+                       placeholder="Imie i nazwisko">
+
+                <input type="text" name="email" size="40" required="" id="id_email" placeholder="Email">
+
+                <input type="number" name="phone" required="" id="id_phone" placeholder="Telefon">
+
+                <textarea name="msg_content" cols="40" rows="10" required="" id="id_msg_content"
+                          placeholder="treść wiadomośći..."></textarea>
+                <input type="submit" class="submit_button" value="wyślij">
+
+            </form>
+        </div>
+
+    </div>
+    <div id="footer">
+
+        <div id="footer_fb_iframe">
+            <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fjubilerslojewski%2F&tabs&width=340&height=70&small_header=true&adapt_container_width=true&hide_cover=false&show_facepile=false&appId"
+                    width="340" height="70" style="border:none;overflow:hidden" scrolling="no" frameborder="0"
+                    allowTransparency="true"></iframe>
+        </div>
+        <p>www.slojewski.pl</p>
+        <div id="footer_line"></div>
+    </div>
+  </div>
+
+<script src="../static/scripts/main.js"></script>
 </body>
 </html>
 
