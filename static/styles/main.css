@@ -140,7 +140,7 @@ body, p, a, input, textarea, button {
               opacity: 1; }
             .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-leave-active {
               opacity: 0; }
-        .offer .offer_ind .offer_ind_right .slider .slider-left, .offer .offer_ind .offer_ind_right .slider #slider-right {
+        .offer .offer_ind .offer_ind_right .slider .slider-left, .offer .offer_ind .offer_ind_right .slider .slider-right {
           position: absolute;
           height: 35px;
           width: 35px;
