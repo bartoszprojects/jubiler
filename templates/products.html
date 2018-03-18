@@ -1,6 +1,6 @@
 <div ng-include="'navbar.html'"></div>
 
-<div ng-controller="productsController">
+<div>
 
     <div class="products" ng-controller="miniproducstController">
         <h4>Ostatnio dodane: </h4>
@@ -9,6 +9,15 @@
                 <img src="{{ product.image }}"/>
             </li>
         </ul>
+    </div>
+
+    <div class="products_category" ng-controller="productsCategoryController">
+            <ul>
+                <li ng-repeat="category in categories">
+                    <p>title of category: {{ category.title }}</p>
+                    <p>products of category: {{ category.product.image }}</p>
+                </li>
+            </ul>
     </div>
 
     <div class="products all_products" ng-controller="productsController">

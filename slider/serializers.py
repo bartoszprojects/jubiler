@@ -6,6 +6,16 @@ class MiniSliderOfferIndividualSerializer(serializers.ModelSerializer):
         model = MiniSliderOfferIndividual
         fields = ('id','title', 'image')
 
+class MiniSliderOfferRepairSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MiniSliderOfferRepair
+        fields = ('id','title', 'image')
+
+class MiniSliderOfferEngravingSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = MiniSliderOfferEngraving
+        fields = ('id','title', 'image')
+
 class MainSliderSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainSlider

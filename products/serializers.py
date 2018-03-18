@@ -1,4 +1,4 @@
-from . models import ProductsMini, MainProducts
+from . models import ProductsMini, MainProducts, ProductsCategory
 from rest_framework import serializers
 
 class MainProductsSerializer(serializers.ModelSerializer):
@@ -11,3 +11,8 @@ class MiniProductsSerializer(serializers.ModelSerializer):
         model = ProductsMini
         fields = ('id','title', 'image')
 
+class ProductsCategorySerializer(serializers.ModelSerializer):
+    product = serializers.StringRelatedField(many=True)
+    class Meta:
+        model = ProductsCategory
+        fields = ('id','title', 'product')
