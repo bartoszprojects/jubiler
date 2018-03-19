@@ -1,0 +1,13 @@
+
+<ui-view>
+<div class="products sub_products">
+    <h4>{{ single_category.title }}</h4>
+    <ul>
+        <li ng-repeat="category in single_category.category">
+            <a ui-sref="products.products_category.image({ imageId: $index })"><img src="{{ category.image }}"/></a>
+
+        </li>
+    </ul>
+
+</div>
+</ui-view>

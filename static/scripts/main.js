@@ -18,6 +18,16 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/products',
             templateUrl: 'products.html'
         })
+        .state('products.products_category', {
+                url: '/products_category/:categoryId',
+                templateUrl: 'products_category.html',
+                controller: 'productsCategoryController'
+            })
+        .state('products.products_category.image', {
+            url: '/image/:imageId',
+            templateUrl: 'image.html',
+            controller: 'productsCategoryController'
+        })
 });
 
 app.service('getDataService', ['$http', function ($http) {
@@ -92,9 +102,12 @@ app.controller('MiniSliderIndividual', function ($scope, getDataService, $q) {
 app.controller('productsController', function ($scope, getDataService) {
     console.log('prodoctsController');
     getDataService.jsonData().products.then(ready_data);
-
     function ready_data(response) {
-        $scope.products = response.data
+        $scope.products = response.data;
+    }
+
+    $scope.galleryFilter = function (x) {
+        $scope.xFilter = x
     }
 });
 
@@ -107,10 +120,14 @@ app.controller('miniproducstController', function ($scope, getDataService) {
     }
 });
 
-app.controller('productsCategoryController', function ($scope, getDataService) {
-    console.log('productsCategoryController');
+app.controller('productsCategoryController', function ($scope, getDataService, $stateParams) {
     getDataService.jsonData().products_category.then(ready_data);
     function ready_data(response) {
         $scope.categories = response.data;
+        $scope.single_category = response.data[$stateParams.categoryId];
+        $scope.single_image = response.data[$stateParams.categoryId].category[$stateParams.imageId];
+        $scope.bartek = 'hehehe'
     }
+
 });
+

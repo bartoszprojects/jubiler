@@ -12,21 +12,24 @@
     </div>
 
     <div class="products_category" ng-controller="productsCategoryController">
-            <ul>
-                <li ng-repeat="category in categories">
-                    <p>title of category: {{ category.title }}</p>
-                    <p>products of category: {{ category.product.image }}</p>
-                </li>
-            </ul>
-    </div>
+        <ul>
+            <li class="products_category_li">
+                <p><a ui-sref="products">wszystkie produkty</a> </p>
+            </li>
+            <li class="products_category_li" ng-repeat="category in categories">
+                <p><a ui-sref="products.products_category({ categoryId: $index })">{{ category.title }}</a></p>
+            </li>
+        </ul>
 
-    <div class="products all_products" ng-controller="productsController">
-        <h4>Wszystkie produkty: </h4>
+    </div>
+<ui-view>
+    <div class="products sub_products" ng-controller="productsController">
+
         <ul>
             <li ng-repeat="product in products">
                 <img src="{{ product.image }}"/>
             </li>
         </ul>
-    </div>
+    </div></ui-view>
 
 </div>

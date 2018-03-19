@@ -299,14 +299,57 @@ a
 
 /************************************ /products ************************************/
 
-.all_products
-  height: 1000px
+.products_category
+  float: left
+  width: 100%
+  padding: 10px 0 10px 0
   ul
-    display: block
-    li
+    margin: 0
+    padding: 0
+    list-style-type: none
+    width: 100%
+    display: flex
+    flex-grow: 1
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    align-content: center
+    .products_category_li
       float: left
-      padding: 10px
-      margin: 5px
-      border-right: 0.6px solid #d8c1ba
+      padding: 0 10px 0 10px
+      border: 0.6px solid #d6ccc8
+      margin: 10px
+      font-weight: bold
+      font-size: 13px
+      color: #805a4d
+
+.sub_products
+  background: rgb(30,87,153) /* Old browsers */
+  background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(244,224,217,1) 0%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 101%) /* FF3.6-15 */
+  background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(244,224,217,1) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 101%) /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(244,224,217,1) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 101%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=1 ) /* IE6-9 */
+  height: auto!important
+  ul
+    display: flex
+    flex-grow: 1
+    flex-direction: row
+    flex-wrap: wrap
+    justify-content: center
+    align-items: center
+    align-content: center
+    li
+      border: 0.6px solid #d8c1ba
+      margin: 11px
+      width: auto
+      height: auto
       img
-        max-width: 90%
+        width: auto
+        height: 160px
+
+  a
+    width: 100%
+  .single_image
+    width: 70%
+    height: 301px

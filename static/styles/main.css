@@ -293,16 +293,58 @@ a {
     background: #b1b7bc; }
 
 /************************************ /products *********************************** */
-.all_products {
-  height: 1000px; }
-  .all_products ul {
-    display: block; }
-    .all_products ul li {
+.products_category {
+  float: left;
+  width: 100%;
+  padding: 10px 0 10px 0; }
+  .products_category ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    width: 100%;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center; }
+    .products_category ul .products_category_li {
       float: left;
-      padding: 10px;
-      margin: 5px;
-      border-right: 0.6px solid #d8c1ba; }
-      .all_products ul li img {
-        max-width: 90%; }
+      padding: 0 10px 0 10px;
+      border: 0.6px solid #d6ccc8;
+      margin: 10px;
+      font-weight: bold;
+      font-size: 13px;
+      color: #805a4d; }
+
+.sub_products {
+  background: #1e5799;
+  background: -moz-linear-gradient(left, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
+  background: -webkit-linear-gradient(left, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
+  background: linear-gradient(to right, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=1 );
+  height: auto !important; }
+  .sub_products ul {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center; }
+    .sub_products ul li {
+      border: 0.6px solid #d8c1ba;
+      margin: 11px;
+      width: auto;
+      height: auto; }
+      .sub_products ul li img {
+        width: auto;
+        height: 160px; }
+  .sub_products a {
+    width: 100%; }
+  .sub_products .single_image {
+    width: 70%;
+    height: 301px; }
 
 /*# sourceMappingURL=main.css.map */

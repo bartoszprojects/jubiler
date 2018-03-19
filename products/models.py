@@ -14,17 +14,18 @@ class ProductsMini(models.Model):
         return self.title
 
 class MainProducts(models.Model):
-    title = models.CharField(max_length=50)
-    desc = models.TextField()
+    title = models.CharField(max_length=50, blank=True)
+    desc = models.TextField(blank=True)
     image = models.ImageField(upload_to='media', blank=True)
-
 
     def __str__(self):
         return self.title
 
 class ProductsCategory(models.Model):
-    title = models.CharField(max_length=50)
-    product = models.ForeignKey(MainProducts, related_name='productsCategory', on_delete=models.CASCADE)
+    title = models.CharField(max_length=50, default='title')
+    category = models.ManyToManyField(MainProducts, related_name='category', default='', null=True, blank=True)
 
     def __str__(self):
         return self.title
+
+
