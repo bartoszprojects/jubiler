@@ -6,7 +6,7 @@
         <div id="slider_logo_text">
             <div id="slider_logo">
                 <p>
-                    <img src="../static/images/slider_logo.png"/>
+                    <img ng-src="../static/images/slider_logo.png"/>
                 </p>
             </div>
             <div id="slider_text">
@@ -26,7 +26,7 @@
             <div class="offer_ind_left_box">
                 <div class="offer_ind_left_box_img">
                     <p>
-                        <img src="../static/images/neck_mini.png"/></p>
+                        <img ng-src="../static/images/neck_mini.png"/></p>
                 </div>
                 <div class="offer_ind_left_box_text">
                     <h4>Biżuteria na zamówienie</h4>
@@ -41,12 +41,12 @@
 
         </div>
         <div class="offer_ind_right">
-            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="myNumber = 0">
+            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="init(0)">
                 <div class="slide">
                     <div class="center">
                         <img class="swap-animation" ng-animate-swap="temp" ng-src="{{ slajd }}"/>
-                        <button class="slider-right" ng-click="nextSlide(0)"></button>
-                        <button class="slider-left" ng-click="previousSlide(0)"></button>
+                        <button class="slider-right" ng-click="nextSlide()"></button>
+                        <button class="slider-left" ng-click="previousSlide()"></button>
                     </div>
                 </div>
             </div>
@@ -54,12 +54,12 @@
     </div>
     <div class="offer_ind offer_two">
         <div class="offer_ind_right">
-            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="myNumber = 1">
+            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="init(1)">
                 <div class="slide">
                     <div class="center">
                         <img class="swap-animation" ng-animate-swap="temp" ng-src="{{ slajd }}"/>
-                        <button class="slider-right" ng-click="nextSlide(1)"></button>
-                        <button class="slider-left" ng-click="previousSlide(1)"></button>
+                        <button class="slider-right" ng-click="nextSlide()"></button>
+                        <button class="slider-left" ng-click="previousSlide()"></button>
                     </div>
                 </div>
             </div>
@@ -68,7 +68,7 @@
             <div class="offer_ind_left_box">
                 <div class="offer_ind_left_box_img">
                     <p>
-                        <img src="../static/images/neck_mini.png"/></p>
+                        <img ng-src="../static/images/neck_mini.png"/></p>
                 </div>
                 <div class="offer_ind_left_box_text">
                     <h4>Obróbka i grawerowanie</h4>
@@ -87,7 +87,7 @@
             <div class="offer_ind_left_box">
                 <div class="offer_ind_left_box_img">
                     <p>
-                        <img src="../static/images/neck_mini.png"/></p>
+                        <img ng-src="../static/images/neck_mini.png"/></p>
                 </div>
                 <div class="offer_ind_left_box_text">
                     <h4>Naprawa i rekonstrukcja</h4>
@@ -99,12 +99,12 @@
             </div>
         </div>
         <div class="offer_ind_right">
-            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="myNumber = 2">
+            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="init(2)">
                 <div class="slide">
                     <div class="center">
                         <img class="swap-animation" ng-animate-swap="temp" ng-src="{{ slajd }}"/>
-                        <button class="slider-right" ng-click="nextSlide(2)"></button>
-                        <button class="slider-left" ng-click="previousSlide(2)"></button>
+                        <button class="slider-right" ng-click="nextSlide()"></button>
+                        <button class="slider-left" ng-click="previousSlide()"></button>
                     </div>
                 </div>
             </div>

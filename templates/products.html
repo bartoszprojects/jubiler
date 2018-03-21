@@ -16,7 +16,7 @@
             <li class="products_category_li">
                 <p><a ui-sref="products">wszystkie produkty</a> </p>
             </li>
-            <li class="products_category_li" ng-repeat="category in categories">
+            <li class="products_category_li" ng-repeat="category in categories" ng-if="category">
                 <p><a ui-sref="products.products_category({ categoryId: $index })">{{ category.title }}</a></p>
             </li>
         </ul>
