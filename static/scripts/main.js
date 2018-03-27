@@ -1,9 +1,7 @@
 const app = angular.module('app', ['ngAnimate', 'ui.router']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
-
     $urlRouterProvider.otherwise('/home');
-
     $stateProvider
         .state('home', {
             url: '/home',
@@ -62,56 +60,6 @@ app.controller('mainSliderController', function ($scope, getDataService) {
     }
 });
 
-app.controller('MiniSliderIndividual', function ($scope, getDataService) {
-    console.log('from MiniSliderIndividual');
-    $scope.temp = 1;
-
-    $scope.init = function (myNumber) {
-        $scope.myNumber = myNumber;
-        if ($scope.myNumber === 0) {
-            return getDataService.jsonData().mini_slides_ind.then(ready_data)
-        }
-        if ($scope.myNumber === 1) {
-            return getDataService.jsonData().mini_slides_engraving.then(ready_data)
-        }
-        if ($scope.myNumber === 2) {
-            return getDataService.jsonData().mini_slides_repair.then(ready_data)
-        }
-    };
-
-    function ready_data(response) {
-        $scope.slajd = response.data[0].image;
-
-        $scope.nextSlide = function () {
-            next(response)
-        };
-        $scope.previousSlide = function () {
-            previous(response)
-        };
-
-        console.log('xdata: ', response.data)
-    }
-
-    function next(response) {
-        if ($scope.temp <= response.data.length - 1) {
-            $scope.slajd = response.data[$scope.temp].image;
-            $scope.temp += 1;
-
-        }
-        if ($scope.temp === response.data.length + 1) {
-            $scope.temp = 1;
-            $scope.slajd = response.data[$scope.temp].image;
-        }
-    }
-
-    function previous(response) {
-        if ($scope.temp > 1) {
-            $scope.temp -= 1;
-            $scope.slajd = response.data[$scope.temp - 1].image;
-        }
-    }
-});
-
 app.controller('productsController', function ($scope, getDataService) {
     console.log('prodoctsController');
     getDataService.jsonData().products.then(ready_data);
@@ -152,3 +100,52 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
     }
 });
 
+app.controller('MiniSlider', function ($scope, getDataService) {
+    getDataService.jsonData().mini_slides_ind.then(function (response) {
+        $scope.mini_slides_ind = response.data;
+    });
+    getDataService.jsonData().mini_slides_engraving.then(function (response) {
+        $scope.mini_slides_engraving = response.data;
+    });
+    getDataService.jsonData().mini_slides_repair.then(function (response) {
+        $scope.mini_slides_repair = response.data;
+    });
+});
+
+app.directive('slider', function () {
+    return {
+        restrict: 'EA',
+        scope: {
+            data: '=ngModel'
+        },
+        replace: true,
+        templateUrl: 'slider.html'
+
+        ,
+        controller: function ($scope) {
+            $scope.currentPosition = 0;
+            $scope.image = $scope.data[$scope.currentPosition].image;
+
+            $scope.nextSlide = function () {
+                if ($scope.currentPosition < $scope.data.length - 1) {
+                    $scope.currentPosition += 1;
+                    $scope.image = $scope.data[$scope.currentPosition].image;
+                } else {
+                    $scope.currentPosition = 0;
+                }
+            };
+            $scope.previousSlide = function () {
+                if ($scope.currentPosition > 0) {
+                    $scope.currentPosition -= 1;
+                } else {
+                    $scope.currentPosition = $scope.data.length - 1;
+                }
+            };
+
+            $scope.$watch('currentPosition', function (newVal) {
+                $scope.image = $scope.data[$scope.currentPosition].image;
+                $scope.apply();
+            })
+        }
+    }
+});

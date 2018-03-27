@@ -75,7 +75,7 @@ a
     width: 100%
     float: left
     display: flex
-    padding: 20px 0 10px 0
+    padding: 20px 0 30px 0
     justify-content: center
     .offer_ind_left
       float: left
@@ -88,27 +88,10 @@ a
         float: left
         margin: 10px 10px 10px 10px
         border-radius: 20%
-        button
-          background: #7c8ea4
-          border: none
-          color: white
-          padding: 8px 30px 8px 30px
-          display: block
-          margin-left: auto
-          margin-right: auto
-          margin-top: 5px
-          font-weight: bold
-          font-size: 12px
-          letter-spacing: 0.5px
-        .offer_ind_left_box_img
-          width: 100%
-          height: 40%
-          float: left
-          p
-            text-align: center
-          img
-            height: 100%
-            width: 200px
+        p
+          text-align: center
+        img
+          width: 180px
         .offer_ind_left_box_text
           width: 100%
           height: 60%
@@ -123,6 +106,18 @@ a
             text-align: center
             font-weight: bold
             margin: 1px
+          button
+            background: #7c8ea4
+            border: none
+            color: white
+            padding: 8px 30px 8px 30px
+            display: block
+            margin-left: auto
+            margin-right: auto
+            margin-top: 5px
+            font-weight: bold
+            font-size: 12px
+            letter-spacing: 0.5px
     .offer_ind_right
       float: left
       height: 360px
@@ -131,6 +126,10 @@ a
         width: 95%
         height: 80%
         margin-top: 10%
+        .buttons
+          width: 100%
+          p
+            text-align: center
         .slide
           width: 100%
           height: 100%
@@ -152,20 +151,16 @@ a
             &.ng-leave-active
               opacity: 0
         .slider-left, .slider-right
-          position: absolute
           height: 35px
           width: 35px
           border: none
         .slider-left
-          top: 104%
-          left: 40%
           background: url("../images/arrow-left.png") no-repeat
           background-size: 90%
         .slider-right
-          top: 104%
-          left: 52%
           background: url("../images/arrow-right.png") no-repeat
           background-size: 90%
+          margin-left: 15px
   .offer_one
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,f4e0d9+0,ffffff+99,ffffff+100,ffffff+100,ffffff+101 */
     background: rgb(30,87,153) /* Old browsers */
@@ -221,7 +216,7 @@ a
       img
         height: 100%
         margin: 0 auto
-    li:nth-child(5)
+    li:last-child
       border-right: 0.6px solid #d8c1ba
 
 #contact

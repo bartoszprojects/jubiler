@@ -1,4 +1,4 @@
-<div ng-include="'navbar.html'"></div>
+
 
 <div id="main_slider" ng-controller="mainSliderController">
     <div id="slide">
@@ -20,14 +20,14 @@
 
 </div>
 
-<div class="offer">
+
+<div class="offer" ng-controller="MiniSlider">
     <div class="offer_ind offer_one">
         <div class="offer_ind_left">
             <div class="offer_ind_left_box">
-                <div class="offer_ind_left_box_img">
-                    <p>
-                        <img ng-src="../static/images/neck_mini.png"/></p>
-                </div>
+                <p>
+                    <img src="../static/images/neck_ind.png"/>
+                </p>
                 <div class="offer_ind_left_box_text">
                     <h4>Biżuteria na zamówienie</h4>
                     <p>Nasza pracownia wykonuję biżuterie na specjalne, indywidualne zamówienia klientów. Poza szeroką
@@ -40,36 +40,19 @@
             </div>
 
         </div>
-        <div class="offer_ind_right">
-            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="init(0)">
-                <div class="slide">
-                    <div class="center">
-                        <img class="swap-animation" ng-animate-swap="temp" ng-src="{{ slajd }}"/>
-                        <button class="slider-right" ng-click="nextSlide()"></button>
-                        <button class="slider-left" ng-click="previousSlide()"></button>
-                    </div>
-                </div>
-            </div>
+        <div class="offer_ind_right" ng-if="mini_slides_ind">
+            <slider ng-model="mini_slides_ind"></slider>
         </div>
     </div>
     <div class="offer_ind offer_two">
-        <div class="offer_ind_right">
-            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="init(1)">
-                <div class="slide">
-                    <div class="center">
-                        <img class="swap-animation" ng-animate-swap="temp" ng-src="{{ slajd }}"/>
-                        <button class="slider-right" ng-click="nextSlide()"></button>
-                        <button class="slider-left" ng-click="previousSlide()"></button>
-                    </div>
-                </div>
-            </div>
+        <div class="offer_ind_right" ng-if="mini_slides_engraving">
+            <slider ng-model="mini_slides_engraving"></slider>
         </div>
         <div class="offer_ind_left">
             <div class="offer_ind_left_box">
-                <div class="offer_ind_left_box_img">
-                    <p>
-                        <img ng-src="../static/images/neck_mini.png"/></p>
-                </div>
+                <p>
+                    <img ng-src="../static/images/neck_engr.png"/></p>
+
                 <div class="offer_ind_left_box_text">
                     <h4>Obróbka i grawerowanie</h4>
                     <p>Oferujemy grawerowanie od napisów tradycyjną ręczną metodą aż po leserowo nanoszone zdjęcia na
@@ -85,10 +68,10 @@
     <div class="offer_ind offer_three">
         <div class="offer_ind_left">
             <div class="offer_ind_left_box">
-                <div class="offer_ind_left_box_img">
-                    <p>
-                        <img ng-src="../static/images/neck_mini.png"/></p>
-                </div>
+
+                <p>
+                    <img ng-src="../static/images/neck_repair.png"/></p>
+
                 <div class="offer_ind_left_box_text">
                     <h4>Naprawa i rekonstrukcja</h4>
                     <p>Posiadasz zniszczony pierścionek, łańcuszek lub starą, antyczną biżuterię? Przynieś ją do nas!
@@ -98,21 +81,14 @@
                 </div>
             </div>
         </div>
-        <div class="offer_ind_right">
-            <div class="slider" ng-controller="MiniSliderIndividual" ng-init="init(2)">
-                <div class="slide">
-                    <div class="center">
-                        <img class="swap-animation" ng-animate-swap="temp" ng-src="{{ slajd }}"/>
-                        <button class="slider-right" ng-click="nextSlide()"></button>
-                        <button class="slider-left" ng-click="previousSlide()"></button>
-                    </div>
-                </div>
-            </div>
+        <div class="offer_ind_right" ng-if="mini_slides_repair">
+            <slider ng-model="mini_slides_repair"></slider>
         </div>
-
     </div>
 
 </div>
+
+
 <div class="products" ng-controller="miniproducstController">
     <ul>
         <li ng-repeat="product in products">
@@ -122,39 +98,10 @@
     </ul>
     <div class="products_button">
 
-            <button>wszystkie produkty ...</button>
+        <button>wszystkie produkty ...</button>
 
     </div>
 
 </div>
 
-<div id="contact">
-    <div id="contact_info">
-        <p>Pracownia Jubilerska</p>
-        <p>Damian Słojewski Ds Group</p>
-        <p style="height: 10px;"></p>
-        <p>ul.Antalla 5 03-126 Warszawa </p>
-        <p>tel.517-252-047</p>
-        <p style="height: 10px"></p>
-        <p>e-mail: jubiler@slojewski.pl</p>
-        <p>Godziny Otwarcia </p>
-        <p>Pon. - Pt. 11-19 Sob. 11-14</p>
-    </div>
-    <div id="contact_form">
 
-        <form>
-            <input type="text" name="name" size="40" maxlength="255" required="" id="id_name"
-                   placeholder="Imie i nazwisko">
-
-            <input type="text" name="email" size="40" required="" id="id_email" placeholder="Email">
-
-            <input type="number" name="phone" required="" id="id_phone" placeholder="Telefon">
-
-            <textarea name="msg_content" cols="40" rows="10" required="" id="id_msg_content"
-                      placeholder="treść wiadomośći..."></textarea>
-            <input type="submit" class="submit_button" value="wyślij">
-
-        </form>
-    </div>
-
-</div>

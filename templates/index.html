@@ -9,13 +9,51 @@
     <script src="../static/bower_components/angular/angular.js"></script>
     <script src="../static/bower_components/angular-animate/angular-animate.js"></script>
     <script src="../static/bower_components/jquery/dist/jquery.js"></script>
-    <script src="/jubiler/static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="../static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 
 </head>
 <body ng-app="app">
 <script src="../static/scripts/main.js"></script>
 <div id="container">
+
+
+    <div ng-include="'navbar.html'"></div>
+
+
     <ui-view></ui-view>
+
+    <div id="contact">
+        <div id="contact_info">
+            <p>Pracownia Jubilerska</p>
+            <p>Damian Słojewski Ds Group</p>
+            <p style="height: 10px;"></p>
+            <p>ul.Antalla 5 03-126 Warszawa </p>
+            <p>tel.517-252-047</p>
+            <p style="height: 10px"></p>
+            <p>e-mail: jubiler@slojewski.pl</p>
+            <p>Godziny Otwarcia </p>
+            <p>Pon. - Pt. 11-19 Sob. 11-14</p>
+        </div>
+        <div id="contact_form">
+
+            <form>
+                <input type="text" name="name" size="40" maxlength="255" required="" id="id_name"
+                       placeholder="Imie i nazwisko">
+
+                <input type="text" name="email" size="40" required="" id="id_email" placeholder="Email">
+
+                <input type="number" name="phone" required="" id="id_phone" placeholder="Telefon">
+
+                <textarea name="msg_content" cols="40" rows="10" required="" id="id_msg_content"
+                          placeholder="treść wiadomośći..."></textarea>
+                <input type="submit" class="submit_button" value="wyślij">
+
+            </form>
+        </div>
+
+    </div>
+
+
     <div id="footer">
 
         <div id="footer_fb_iframe">

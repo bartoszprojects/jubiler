@@ -74,7 +74,7 @@ a {
     width: 100%;
     float: left;
     display: flex;
-    padding: 20px 0 10px 0;
+    padding: 20px 0 30px 0;
     justify-content: center; }
     .offer .offer_ind .offer_ind_left {
       float: left;
@@ -87,27 +87,10 @@ a {
         float: left;
         margin: 10px 10px 10px 10px;
         border-radius: 20%; }
-        .offer .offer_ind .offer_ind_left .offer_ind_left_box button {
-          background: #7c8ea4;
-          border: none;
-          color: white;
-          padding: 8px 30px 8px 30px;
-          display: block;
-          margin-left: auto;
-          margin-right: auto;
-          margin-top: 5px;
-          font-weight: bold;
-          font-size: 12px;
-          letter-spacing: 0.5px; }
-        .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_img {
-          width: 100%;
-          height: 40%;
-          float: left; }
-          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_img p {
-            text-align: center; }
-          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_img img {
-            height: 100%;
-            width: 200px; }
+        .offer .offer_ind .offer_ind_left .offer_ind_left_box p {
+          text-align: center; }
+        .offer .offer_ind .offer_ind_left .offer_ind_left_box img {
+          width: 180px; }
         .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text {
           width: 100%;
           height: 60%;
@@ -122,6 +105,18 @@ a {
             text-align: center;
             font-weight: bold;
             margin: 1px; }
+          .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text button {
+            background: #7c8ea4;
+            border: none;
+            color: white;
+            padding: 8px 30px 8px 30px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 5px;
+            font-weight: bold;
+            font-size: 12px;
+            letter-spacing: 0.5px; }
     .offer .offer_ind .offer_ind_right {
       float: left;
       height: 360px;
@@ -130,6 +125,10 @@ a {
         width: 95%;
         height: 80%;
         margin-top: 10%; }
+        .offer .offer_ind .offer_ind_right .slider .buttons {
+          width: 100%; }
+          .offer .offer_ind .offer_ind_right .slider .buttons p {
+            text-align: center; }
         .offer .offer_ind .offer_ind_right .slider .slide {
           width: 100%;
           height: 100%;
@@ -151,20 +150,16 @@ a {
             .offer .offer_ind .offer_ind_right .slider .slide .swap-animation.ng-leave-active {
               opacity: 0; }
         .offer .offer_ind .offer_ind_right .slider .slider-left, .offer .offer_ind .offer_ind_right .slider .slider-right {
-          position: absolute;
           height: 35px;
           width: 35px;
           border: none; }
         .offer .offer_ind .offer_ind_right .slider .slider-left {
-          top: 104%;
-          left: 40%;
           background: url("../images/arrow-left.png") no-repeat;
           background-size: 90%; }
         .offer .offer_ind .offer_ind_right .slider .slider-right {
-          top: 104%;
-          left: 52%;
           background: url("../images/arrow-right.png") no-repeat;
-          background-size: 90%; }
+          background-size: 90%;
+          margin-left: 15px; }
   .offer .offer_one {
     background: #1e5799;
     background: -moz-linear-gradient(left, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
@@ -218,7 +213,7 @@ a {
       .products ul li img {
         height: 100%;
         margin: 0 auto; }
-    .products ul li:nth-child(5) {
+    .products ul li:last-child {
       border-right: 0.6px solid #d8c1ba; }
 
 #contact {
