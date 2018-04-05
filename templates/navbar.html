@@ -1,10 +1,19 @@
- <nav id="main_navbar">
-        <ul>
-            <li><a ui-sref="home">Strona Główna</a></li>
-            <li><a>O firmie</a></li>
-            <li><a ui-sref="products">Produkty</a></li>
-            <li><a>Usługi</a></li>
-            <li><a>Galeria</a></li>
-            <li><a>Kontakt</a></li>
-        </ul>
-    </nav>
+<nav id="main_navbar">
+    <ul>
+        <li>
+            <span ui-sref-active="activeState">
+                <a ui-sref="home">Strona Główna</a>
+            </span>
+        </li>
+
+        <li><a>O firmie</a></li>
+        <li>
+            <span ui-sref-active="activeState">
+                <a ui-sref="products">Produkty</a>
+            </span>
+        </li>
+        <li><a>Usługi</a></li>
+        <li><a>Galeria</a></li>
+        <li><a>Kontakt</a></li>
+    </ul>
+</nav>

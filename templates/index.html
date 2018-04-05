@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <title>Jubiler Słojewski</title>
-    <link rel="stylesheet" type="text/css" href="../static/styles/main.css"/>
 
+    <link rel="stylesheet" type="text/css" href="../static/styles/main.css"/>
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:200&subset=latin-ext" rel="stylesheet">
     <script src="../static/bower_components/angular/angular.js"></script>
     <script src="../static/bower_components/angular-animate/angular-animate.js"></script>
     <script src="../static/bower_components/jquery/dist/jquery.js"></script>
     <script src="../static/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
-
+<script>
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+</script>
 </head>
 <body ng-app="app">
-<script src="../static/scripts/main.js"></script>
+<script>
+window.onbeforeunload = function () {
+  window.scrollTo(0, 0);
+}
+</script>
+
 <div id="container">
-
-
-    <div ng-include="'navbar.html'"></div>
-
 
     <ui-view></ui-view>
 
@@ -62,6 +67,11 @@
         <div id="footer_line"></div>
     </div>
 </div>
+
+
+<script src="../static/scripts/main.js"></script>
+
+
 
 </body>
 </html>

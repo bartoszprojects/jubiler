@@ -8,8 +8,12 @@ a
   color: black
   text-decoration: none
 
+.activeState a
+  color: #e5d99f !important
+
+
 #container
-  width: 1100px
+  max-width: 1100px
   height: auto
   margin: 10px auto
 
@@ -23,31 +27,42 @@ a
   color: #535353
   ul
     list-style-type: none
+    margin: 0
     li
       float: left
-      margin-left: 10px
-      padding: 10px
-
+      margin-left: 29px
+      a
+        line-height: 35px
+        color: white
 
 #main_slider
   width: 100%
-  height: 635px
+  height: 550px
   float: left
   background: moccasin
   #slide
     position: relative
-    img
+  .slide_content
+    width: 100%
+    position: relative
+    height: 100%
+    .childMain
+      position: absolute
+      background-color: rgba(0,0,0,0.6)
+      top: 95.5%!important
       width: 100%
+    img.logo
+      width: 100%
+      height: calc(100% + 34px)
     #slider_logo_text
       width: 30%
       position: absolute
       top: 30px
-      left: 30px
+      left: 10%
       #slider_text
         margin-top: 11px
         text-align: center
-        padding: 21px
-        background: rgba(255,255,255,0.21)
+        padding: 1px 31px 1px 31px
         font-weight: bold
         font-size: 13px
         border-radius: 10px
@@ -56,8 +71,8 @@ a
       p
         text-align: center
       #slider_logo img
-        width: 250px
-    #slider_baner
+        width: 215px
+    .slider_baner
       width: 100%
       height: 50px
       background: rgba(0,0,0,0.5)
@@ -67,6 +82,45 @@ a
       font-size: 16px
       color: white
       font-weight: bold
+
+#main_slider_mini
+  width: 100%
+  .slide_content
+    width: 100%
+    position: relative
+    height: 170px
+    #slider_logo
+      width: 170px
+      position: absolute
+      top: 0
+      left: 10%
+    img
+      width: 100%
+      height: calc(100% + 34px)
+
+.top-container
+  background-color: #f1f1f1
+  padding: 30px
+  text-align: center
+
+.child
+  position: absolute
+  background-color: rgba(0,0,0,0.6)
+  top: 100%
+  width: 100%
+  z-index: 9999
+.fixed
+  position: fixed
+
+.header
+  padding: 10px 16px
+  background: #555
+  color: #f1f1f1
+.sticky
+  position: fixed
+  top: 0
+  width: 100%
+
 .offer
   width: 100%
   height: auto
@@ -162,6 +216,7 @@ a
           background-size: 90%
           margin-left: 15px
   .offer_one
+    padding-top: 70px
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,f4e0d9+0,ffffff+99,ffffff+100,ffffff+100,ffffff+101 */
     background: rgb(30,87,153) /* Old browsers */
     background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(244,224,217,1) 0%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 101%) /* FF3.6-15 */
@@ -180,6 +235,7 @@ a
   width: 100%
   height: 300px
   float: left
+  padding-top: 30px
   background: rgb(30,87,153) /* Old browsers */
   background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(32,124,202,1) 0%, rgba(221,225,230,1) 0%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(32,124,202,1) 100%) /* FF3.6-15 */
   background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(32,124,202,1) 0%,rgba(221,225,230,1) 0%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(32,124,202,1) 100%) /* Chrome10-25,Safari5.1-6 */
@@ -348,3 +404,8 @@ a
   .single_image
     width: 70%
     height: 301px
+
+
+@media screen and (max-width: 1100px)
+  .child
+    width: 100%!important

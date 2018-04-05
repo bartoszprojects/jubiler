@@ -13,7 +13,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('products', {
             url: '/products',
-            templateUrl: 'products.html'
+            templateUrl: 'products.html',
+            controller: 'productsController'
         })
         .state('products.products_category', {
             url: '/products_category/:categoryId',
@@ -48,7 +49,11 @@ app.service('getDataService', ['$http', function ($http) {
     }
 }]);
 
-app.controller('mainSliderController', function ($scope, getDataService) {
+app.controller('mainSliderController', function ($scope, getDataService, $rootScope) {
+    $rootScope.$on('$stateChangeSuccess', function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+    });
     console.log('from mainSliderController');
     getDataService.jsonData().main_slider.then(ready_data);
 
@@ -94,8 +99,6 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
         if (response.data[$stateParams.categoryId].category) {
             $scope.single_image = response.data[$stateParams.categoryId].category[$stateParams.imageId];
         }
-
-        $scope.bartek = 'hehehe';
         console.log('categories', $scope.categories)
     }
 });
@@ -144,8 +147,58 @@ app.directive('slider', function () {
 
             $scope.$watch('currentPosition', function (newVal) {
                 $scope.image = $scope.data[$scope.currentPosition].image;
-                $scope.apply();
             })
         }
     }
 });
+
+function directiveSliderFunction() {
+    window.onscroll = function () {
+        myFunction()
+    };
+
+    var header = document.getElementById("myHeader");
+    var sticky = header.offsetTop;
+
+    parentwidth = $(".slide_content").width();
+
+    function myFunction() {
+        if (window.pageYOffset >= sticky) {
+            header.classList.add("sticky");
+            $(".child").toggleClass("fixed").width(parentwidth);
+
+        } else {
+            header.classList.remove("sticky");
+            header.classList.remove("fixed");
+        }
+
+    }
+}
+
+app.directive('minislider', function () {
+    return {
+        restrict: 'EA',
+        scope: {
+            data: '=ngModel'
+        },
+        replace: true,
+        templateUrl: 'mini_slider.html',
+        link: directiveSliderFunction
+    }
+});
+
+
+app.directive('mainslider', function () {
+    return {
+        restrict: 'EA',
+        scope: {
+            data: '=ngModel'
+        },
+        replace: true,
+        templateUrl: 'main_slider.html',
+        link: directiveSliderFunction,
+        controller: 'mainSliderController'
+    }
+});
+
+
