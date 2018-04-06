@@ -51,7 +51,7 @@ app.service('getDataService', ['$http', function ($http) {
 
 app.controller('mainSliderController', function ($scope, getDataService, $rootScope) {
     $rootScope.$on('$stateChangeSuccess', function () {
-        document.body.scrollTop = 0;
+        document.getElementsByTagName('ui-view').scrollTop = 0;
         document.documentElement.scrollTop = 0;
     });
     console.log('from mainSliderController');
@@ -71,12 +71,11 @@ app.controller('productsController', function ($scope, getDataService) {
 
     function ready_data(response) {
         $scope.products = response.data;
-        console.log('products: ', response.data)
+        console.log('products: ', response.data);
+        $scope.loadingImage = '../static/images/loading.gif';
     }
 
-    $scope.galleryFilter = function (x) {
-        $scope.xFilter = x
-    }
+
 });
 
 app.controller('miniproducstController', function ($scope, getDataService) {
@@ -103,6 +102,53 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
     }
 });
 
+app.directive('slider', function () {
+        return {
+            restrict: 'EA',
+            scope: {
+                data: '=ngModel'
+            },
+            replace: true,
+            templateUrl: 'slider.html',
+            controller: function ($scope, $interval) {
+
+                $scope.currentPosition = 0;
+                $scope.preImage = $scope.data[$scope.currentPosition].image;
+                $scope.image = '../static/images/loading.gif';
+
+                var img = new Image();   // Create new img element
+                img.addEventListener('load', function () {
+                    $scope.image = $scope.data[$scope.currentPosition].image;
+                }, false);
+                img.src = '../static/images/loading.gif'; // Set source path
+
+                $scope.nextSlide = function () {
+                    if ($scope.currentPosition < $scope.data.length - 1) {
+                        $scope.currentPosition += 1;
+                        $scope.image = $scope.data[$scope.currentPosition].image;
+
+                    } else {
+                        $scope.currentPosition = 0;
+                        $scope.image = $scope.data[$scope.currentPosition].image;
+                    }
+                };
+                $scope.previousSlide = function () {
+                    if ($scope.currentPosition > 0) {
+                        $scope.currentPosition -= 1;
+                        $scope.image = $scope.data[$scope.currentPosition].image;
+                    } else {
+                        $scope.currentPosition = $scope.data.length - 1;
+                        $scope.image = $scope.data[$scope.currentPosition].image;
+                    }
+                };
+
+
+            }
+        }
+    }
+);
+
+
 app.controller('MiniSlider', function ($scope, getDataService) {
     getDataService.jsonData().mini_slides_ind.then(function (response) {
         $scope.mini_slides_ind = response.data;
@@ -115,42 +161,6 @@ app.controller('MiniSlider', function ($scope, getDataService) {
     });
 });
 
-app.directive('slider', function () {
-    return {
-        restrict: 'EA',
-        scope: {
-            data: '=ngModel'
-        },
-        replace: true,
-        templateUrl: 'slider.html'
-
-        ,
-        controller: function ($scope) {
-            $scope.currentPosition = 0;
-            $scope.image = $scope.data[$scope.currentPosition].image;
-
-            $scope.nextSlide = function () {
-                if ($scope.currentPosition < $scope.data.length - 1) {
-                    $scope.currentPosition += 1;
-                    $scope.image = $scope.data[$scope.currentPosition].image;
-                } else {
-                    $scope.currentPosition = 0;
-                }
-            };
-            $scope.previousSlide = function () {
-                if ($scope.currentPosition > 0) {
-                    $scope.currentPosition -= 1;
-                } else {
-                    $scope.currentPosition = $scope.data.length - 1;
-                }
-            };
-
-            $scope.$watch('currentPosition', function (newVal) {
-                $scope.image = $scope.data[$scope.currentPosition].image;
-            })
-        }
-    }
-});
 
 function directiveSliderFunction() {
     window.onscroll = function () {
@@ -186,7 +196,6 @@ app.directive('minislider', function () {
         link: directiveSliderFunction
     }
 });
-
 
 app.directive('mainslider', function () {
     return {
