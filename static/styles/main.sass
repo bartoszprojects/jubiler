@@ -21,7 +21,7 @@ a
 #main_navbar
   margin: 0 auto
   background: white
-  width: 55%
+  width: 48%
   font-weight: 700
   font-size: 13px
   color: #535353
@@ -146,6 +146,7 @@ a
           text-align: center
         img
           width: 180px
+          height: 165px
         .offer_ind_left_box_text
           width: 100%
           height: 60%
@@ -174,26 +175,28 @@ a
             letter-spacing: 0.5px
     .offer_ind_right
       float: left
-      height: 360px
-      width: 40%
+      height: 320px
+      width: 42%
       .slider
         width: 95%
         height: 80%
-        margin-top: 10%
+        margin-top: 15%
         .buttons
           width: 100%
           p
             text-align: center
+            margin: 8px
         .slide
           width: 100%
           height: 100%
           position: relative
           .swap-animation
             position: absolute
-            height: 100%
+            max-height: 100%
             left: 0
             right: 0
             margin: 0 auto
+            max-width: 100%
             &.ng-enter, &.ng-leave
               transition: 0.3s linear all
             &.ng-enter
@@ -208,17 +211,25 @@ a
           height: 35px
           width: 35px
           border: none
+          background-color: transparent
+          background-repeat: no-repeat
+          background-size: 90%
+          cursor: pointer
         .slider-left
-          background: url("../images/arrow-left.png") no-repeat
-          background-size: 90%
+          background-image: url("../images/arrow-left.png")
+          &:hover
+            background-image: url("../images/arrow-left-b.png")
+
         .slider-right
-          background: url("../images/arrow-right.png") no-repeat
-          background-size: 90%
+          background-image: url("../images/arrow-right.png")
           margin-left: 15px
+          &:hover
+            background-image: url("../images/arrow-right-b.png")
+
   .offer_one
     padding-top: 70px
         /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#1e5799+0,f4e0d9+0,ffffff+99,ffffff+100,ffffff+100,ffffff+101 */
-    background: rgb(30,87,153) /* Old browsers */
+    background: rgb(30,88,153) /* Old browsers */
     background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(244,224,217,1) 0%, rgba(255,255,255,1) 99%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 101%) /* FF3.6-15 */
     background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(244,224,217,1) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 101%) /* Chrome10-25,Safari5.1-6 */
     background: linear-gradient(to right, rgba(30,87,153,1) 0%,rgba(244,224,217,1) 0%,rgba(255,255,255,1) 99%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 101%) /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
@@ -233,9 +244,9 @@ a
 
 .products
   width: 100%
-  height: 300px
+  min-height: 330px
   float: left
-  padding-top: 30px
+  padding-top: 60px
   background: rgb(30,87,153) /* Old browsers */
   background: -moz-linear-gradient(left, rgba(30,87,153,1) 0%, rgba(32,124,202,1) 0%, rgba(221,225,230,1) 0%, rgba(255,255,255,1) 100%, rgba(255,255,255,1) 100%, rgba(32,124,202,1) 100%) /* FF3.6-15 */
   background: -webkit-linear-gradient(left, rgba(30,87,153,1) 0%,rgba(32,124,202,1) 0%,rgba(221,225,230,1) 0%,rgba(255,255,255,1) 100%,rgba(255,255,255,1) 100%,rgba(32,124,202,1) 100%) /* Chrome10-25,Safari5.1-6 */
@@ -256,7 +267,7 @@ a
   ul
     list-style-type: none
     padding: 0
-    margin-top: 55px
+    margin-top: 1px
     width: 100%
     display: flex
     flex-direction: row
@@ -264,11 +275,11 @@ a
     li
       display: flex
       padding: 5px
-      width: 15%
-      height: 140px
+      width: 18%
+      height: 180px
       border: 0.6px solid #d8c1ba
       border-right: none
-      background: rgba(255,255,255,0.7)
+      background: white
       img
         height: 100%
         margin: 0 auto
@@ -374,6 +385,14 @@ a
       font-weight: bold
       font-size: 13px
       color: #805a4d
+      a
+        color: #916F45
+.active_all_products
+  background: #FAE8D0
+  border: 1px solid #FAE8D0!important
+  a
+    color: #555555 !important
+
 
 .sub_products
   background: rgb(30,87,153) /* Old browsers */

@@ -1,12 +1,9 @@
-
-
-
 <minislider></minislider>
 
 <div>
 
     <div class="products" ng-controller="miniproducstController">
-        <h4>Ostatnio dodane: </h4>
+        <h4>Wybrane produkty: </h4>
         <ul>
             <li ng-repeat="product in products">
                 <img src="{{ product.image }}"/>
@@ -16,18 +13,21 @@
 
     <div class="products_category" ng-controller="productsCategoryController">
         <ul>
-            <li class="products_category_li">
+            <li id="active_products" class="products_category_li">
                 <p><a ui-sref="products">wszystkie produkty</a></p>
             </li>
-            <li class="products_category_li" ng-repeat="category in categories" ng-if="category">
-                <p><a ui-sref="products.products_category({ categoryId: $index })">{{ category.title }}</a></p>
+            <li ui-sref-active="active_all_products" class="products_category_li" ng-repeat="category in categories"
+                ng-if="category">
+                <p>
+                    <a ui-sref="products.products_category({ categoryId: $index })">{{ category.title }}</a>
+                </p>
             </li>
         </ul>
 
     </div>
     <ui-view>
         <div class="products sub_products" ng-controller="productsController">
-              <ul>
+            <ul>
                 <li ng-repeat="product in products">
                     <img src="{{ product.image }}"/>
                 </li>

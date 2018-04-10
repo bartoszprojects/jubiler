@@ -50,10 +50,7 @@ app.service('getDataService', ['$http', function ($http) {
 }]);
 
 app.controller('mainSliderController', function ($scope, getDataService, $rootScope) {
-    $rootScope.$on('$stateChangeSuccess', function () {
-        document.getElementsByTagName('ui-view').scrollTop = 0;
-        document.documentElement.scrollTop = 0;
-    });
+
     console.log('from mainSliderController');
     getDataService.jsonData().main_slider.then(ready_data);
 
@@ -69,6 +66,9 @@ app.controller('productsController', function ($scope, getDataService) {
     console.log('prodoctsController');
     getDataService.jsonData().products.then(ready_data);
 
+    var element = document.getElementById("active_products");
+    element.classList.add("active_all_products");
+
     function ready_data(response) {
         $scope.products = response.data;
         console.log('products: ', response.data);
@@ -78,18 +78,11 @@ app.controller('productsController', function ($scope, getDataService) {
 
 });
 
-app.controller('miniproducstController', function ($scope, getDataService) {
-    console.log('miniproductsController');
-    getDataService.jsonData().mini_products.then(ready_data);
-
-    function ready_data(response) {
-        $scope.products = response.data;
-        console.log('mini products ', response.data)
-    }
-});
-
 app.controller('productsCategoryController', function ($scope, getDataService, $stateParams) {
     getDataService.jsonData().products_category.then(ready_data);
+
+    var element = document.getElementById("active_products");
+    element.classList.remove("active_all_products");
 
     function ready_data(response) {
         $scope.categories = response.data;
@@ -102,6 +95,18 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
     }
 });
 
+app.controller('miniproducstController', function ($scope, getDataService) {
+    console.log('miniproductsController');
+    getDataService.jsonData().mini_products.then(ready_data);
+
+    function ready_data(response) {
+        $scope.products = response.data;
+        console.log('mini products ', response.data)
+    }
+});
+
+
+
 app.directive('slider', function () {
         return {
             restrict: 'EA',
@@ -113,18 +118,12 @@ app.directive('slider', function () {
             controller: function ($scope, $interval) {
 
                 $scope.currentPosition = 0;
-                $scope.preImage = $scope.data[$scope.currentPosition].image;
-                $scope.image = '../static/images/loading.gif';
-
-                var img = new Image();   // Create new img element
-                img.addEventListener('load', function () {
-                    $scope.image = $scope.data[$scope.currentPosition].image;
-                }, false);
-                img.src = '../static/images/loading.gif'; // Set source path
+                $scope.image = $scope.data[$scope.currentPosition].image;
 
                 $scope.nextSlide = function () {
                     if ($scope.currentPosition < $scope.data.length - 1) {
                         $scope.currentPosition += 1;
+
                         $scope.image = $scope.data[$scope.currentPosition].image;
 
                     } else {
