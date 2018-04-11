@@ -1,4 +1,5 @@
-from . models import MainSlider, MiniSliderOfferEngraving, MiniSliderOfferRepair, MiniSliderOfferIndividual
+from . models import MainSlider, MiniSliderOfferEngraving, MiniSliderOfferRepair, MiniSliderOfferIndividual, \
+    AboutInformations
 from rest_framework import serializers
 
 class MiniSliderOfferIndividualSerializer(serializers.ModelSerializer):
@@ -20,3 +21,8 @@ class MainSliderSerializer(serializers.ModelSerializer):
     class Meta:
         model = MainSlider
         fields = ('id','text', 'image', 'baner')
+
+class AboutInformationsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = AboutInformations
+        fields = ('title', 'content')

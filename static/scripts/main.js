@@ -1,4 +1,4 @@
-const app = angular.module('app', ['ngAnimate', 'ui.router']);
+const app = angular.module('app', ['ngAnimate', 'ui.router', 'ngSanitize']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
@@ -10,6 +10,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         .state('services', {
             url: '/services',
             templateUrl: 'services.html'
+        })
+        .state('about', {
+            url: '/about',
+            templateUrl: 'about.html',
+            controller: 'aboutController'
         })
         .state('products', {
             url: '/products',
@@ -39,6 +44,8 @@ app.service('getDataService', ['$http', function ($http) {
                 $http.get('http://127.0.0.1:8000/slides/mini_slides_repair'),
             'main_slider':
                 $http.get('http://127.0.0.1:8000/slides/main_slider'),
+            'about_informations':
+                $http.get('http://127.0.0.1:8000/slides/about_informations'),
             'products':
                 $http.get('http://127.0.0.1:8000/products/all'),
             'mini_products':
@@ -60,6 +67,18 @@ app.controller('mainSliderController', function ($scope, getDataService, $rootSc
             $scope.baner = response.data[0].baner;
         }
     }
+});
+
+app.controller('aboutController', function ($scope, getDataService, $sce) {
+
+    console.log('from about_informations');
+    getDataService.jsonData().about_informations.then(ready_data);
+
+    function ready_data(response) {
+        $scope.snippet = response.data[0].content;
+        $scope.deliberatelyTrustDangerousSnippet = function () {
+            return $sce.trustAsHtml($scope.snippet);
+        };}
 });
 
 app.controller('productsController', function ($scope, getDataService) {
@@ -84,6 +103,7 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
     var element = document.getElementById("active_products");
     element.classList.remove("active_all_products");
 
+
     function ready_data(response) {
         $scope.categories = response.data;
         $scope.single_category = response.data[$stateParams.categoryId];
@@ -104,7 +124,6 @@ app.controller('miniproducstController', function ($scope, getDataService) {
         console.log('mini products ', response.data)
     }
 });
-
 
 
 app.directive('slider', function () {

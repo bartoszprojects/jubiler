@@ -13,6 +13,7 @@
     "angular-material": "~1.0.6",
     "angular-ui-router": "~0.3.1",
     "angular-animate" : "~1.6.4",
-    "jquery": ""
+    "jquery": "",
+    "angular-sanitize": ""
   }
 }
