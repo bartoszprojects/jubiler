@@ -1,6 +1,7 @@
 # jubiler
 
-www.test.slojewski.pl
+http://www.test.slojewski.pl
+test.slojewski.pl
 
 Strona internetowa dla Jubilera z Warszawy stworzona od całkowitego zera.
 
