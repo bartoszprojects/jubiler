@@ -29,7 +29,12 @@
         <div class="products sub_products" ng-controller="productsController">
             <ul>
                 <li ng-repeat="product in products">
-                    <img src="{{ product.image }}"/>
+                    <a class="product_wrapper">
+                        <p class="product_title">{{ product.title|limitTo: 30 }}</p>
+                        <img class="product_image" src="{{ product.image_thumbnail }}"/>
+                        <p class="product_desc"><span>{{ product.desc|limitTo: 100 }} ..</span></p>
+                    </a>
+
                 </li>
             </ul>
         </div>

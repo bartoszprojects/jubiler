@@ -40,8 +40,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'products',
     'slider',
+    'ckeditor',
     'ckeditor_uploader',
-    'ckeditor'
+    'imagekit',
 
 ]
 

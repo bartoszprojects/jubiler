@@ -5,9 +5,10 @@ from rest_framework import serializers
 
 class MainProductsSerializer(serializers.ModelSerializer):
     category = serializers.StringRelatedField(many=True)
+    image_thumbnail = serializers.ImageField()
     class Meta:
         model = MainProducts
-        fields = ('id','title','image','desc','category',)
+        fields = ('id','title','image','image_thumbnail','desc','category',)
 
 class ProductsCategorySerializer(serializers.ModelSerializer):
     category = MainProductsSerializer(many=True, read_only=True)
@@ -19,3 +20,4 @@ class MiniProductsSerializer(serializers.ModelSerializer):
     class Meta:
         model = ProductsMini
         fields = ('id','title', 'image')
+

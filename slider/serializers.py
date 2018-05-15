@@ -1,5 +1,5 @@
 from . models import MainSlider, MiniSliderOfferEngraving, MiniSliderOfferRepair, MiniSliderOfferIndividual, \
-    AboutInformations
+    AboutInformations, Service, ServiceImages
 from rest_framework import serializers
 
 class MiniSliderOfferIndividualSerializer(serializers.ModelSerializer):
@@ -26,3 +26,23 @@ class AboutInformationsSerializer(serializers.ModelSerializer):
     class Meta:
         model = AboutInformations
         fields = ('title', 'content')
+
+class ServiceSerializer(serializers.ModelSerializer):
+    images = serializers.SerializerMethodField()
+
+    class Meta:
+        model = Service
+        fields = ('id','title','images','content')
+        read_only_fields = ('images',)
+    def get_images(self,obj):
+        return [img.image.url for img in obj.service_images.all()]
+
+class ServiceImageSerializer(serializers.ModelSerializer):
+    service_images = ServiceSerializer(many=True)
+    class Meta:
+        model = ServiceImages
+        fields = ('id','service_images', 'title', 'image')
+
+
+
+

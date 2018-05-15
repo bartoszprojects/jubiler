@@ -1,8 +1,8 @@
 from django.shortcuts import render
 from rest_framework import generics
 from . serializers import MiniSliderOfferIndividualSerializer, MainSliderSerializer, \
-    AboutInformationsSerializer
-from . models import MiniSliderOfferIndividual, MiniSliderOfferRepair, MiniSliderOfferEngraving, MainSlider, AboutInformations
+    AboutInformationsSerializer, ServiceSerializer, ServiceImageSerializer
+from . models import MiniSliderOfferIndividual, MiniSliderOfferRepair, MiniSliderOfferEngraving, MainSlider, AboutInformations, Service, ServiceImages
 
 # Create your views here.
 
@@ -25,3 +25,12 @@ class MainSliderData(generics.ListAPIView):
 class AboutInformationsSerializerData(generics.ListAPIView):
     queryset = AboutInformations.objects.all()
     serializer_class = AboutInformationsSerializer
+
+class ServiceSerializerData(generics.ListAPIView):
+    queryset = Service.objects.all()
+    serializer_class = ServiceSerializer
+
+class ServiceImagesSerializerData(generics.ListAPIView):
+    queryset = ServiceImages.objects.all()
+    serializer_class = ServiceImageSerializer
+

@@ -9,7 +9,8 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         })
         .state('services', {
             url: '/services',
-            templateUrl: 'services.html'
+            templateUrl: 'services.html',
+            controller: 'servicesController'
         })
         .state('about', {
             url: '/about',
@@ -51,7 +52,9 @@ app.service('getDataService', ['$http', function ($http) {
             'mini_products':
                 $http.get('http://127.0.0.1:8000/products/mini_products'),
             'products_category':
-                $http.get('http://127.0.0.1:8000/products/products_category')
+                $http.get('http://127.0.0.1:8000/products/products_category'),
+            'services':
+                $http.get('http://127.0.0.1:8000/slides/services')
         }
     }
 }]);
@@ -78,7 +81,8 @@ app.controller('aboutController', function ($scope, getDataService, $sce) {
         $scope.snippet = response.data[0].content;
         $scope.deliberatelyTrustDangerousSnippet = function () {
             return $sce.trustAsHtml($scope.snippet);
-        };}
+        };
+    }
 });
 
 app.controller('productsController', function ($scope, getDataService) {
@@ -93,7 +97,6 @@ app.controller('productsController', function ($scope, getDataService) {
         console.log('products: ', response.data);
         $scope.loadingImage = '../static/images/loading.gif';
     }
-
 
 });
 
@@ -122,6 +125,18 @@ app.controller('miniproducstController', function ($scope, getDataService) {
     function ready_data(response) {
         $scope.products = response.data;
         console.log('mini products ', response.data)
+    }
+});
+
+app.controller('servicesController', function ($scope, getDataService) {
+    getDataService.jsonData().services.then(ready_data);
+
+    function ready_data(response) {
+        $scope.services = response.data;
+        console.log('services ', $scope.services[0]);
+        console.log('title ', $scope.services[0].title);
+        console.log('title ', $scope.services[0].images);
+
     }
 });
 

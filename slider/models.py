@@ -40,6 +40,7 @@ class MiniSliderOfferRepair(models.Model):
         verbose_name_plural = 'Strona Główna - Slajder: Naprawa'
 
 
+
 class MiniSliderOfferEngraving(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='media', blank=True)
@@ -65,4 +66,20 @@ class AboutInformations(models.Model):
 
 
 
+class Service(models.Model):
+    title = models.CharField(max_length=100, default=0)
+    content = RichTextUploadingField('contents', default=0)
+
+    def __str__(self):
+        return self.title
+
+class ServiceImages(models.Model):
+    image = models.ImageField(upload_to='media', blank=True)
+    title = models.CharField(max_length=25, default=0)
+    service = models.ForeignKey(Service, related_name='service_images', on_delete=models.CASCADE, default=0)
+
+
+
+    def __str__(self):
+        return self.title
 

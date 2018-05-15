@@ -1,5 +1,6 @@
 from django.db import models
-
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 # Create your models here.
 
@@ -30,6 +31,7 @@ class MainProducts(models.Model):
     title = models.CharField(max_length=50, blank=True)
     desc = models.TextField(blank=True)
     image = models.ImageField(upload_to='media', blank=True)
+    image_thumbnail = ImageSpecField(source='image',processors=[ResizeToFill(500,500)],format='JPEG',options={'quality':60})
     category = models.ManyToManyField(ProductsCategory, related_name='category', default='', null=True, blank=True)
 
     def __str__(self):

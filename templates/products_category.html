@@ -1,13 +1,16 @@
-
 <ui-view>
-<div class="products sub_products">
-    <h4>{{ single_category.title }}</h4>
-    <ul>
-        <li ng-repeat="category in single_category.category">
-            <a ui-sref="products.products_category.image({ imageId: $index })"><img src="{{ category.image }}"/></a>
+    <div class="products">
+        <h4>{{ single_category.title }}</h4>
+        <ul>
+            <li ng-repeat="category in single_category.category">
+                <a class="product_wrapper" ui-sref="products.products_category.image({ imageId: $index })">
+                    <p class="product_title">{{ category.title|limitTo: 30 }}</p>
+                    <img class="product_image" src="{{ category.image_thumbnail }}"/>
+                    <p class="product_desc"><span>{{ category.desc|limitTo: 100}} ..</span></p>
+                </a>
+            </li>
+        </ul>
 
-        </li>
-    </ul>
-
-</div>
+    </div>
 </ui-view>
+
