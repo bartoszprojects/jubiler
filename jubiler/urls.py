@@ -27,8 +27,19 @@ urlpatterns = [
     path('products/', include(products.urls)),
     path('ckeditor/', include(ckeditor_uploader.urls)),
 
-
-
+    path('/', TemplateView.as_view(template_name="index.html")),
+    path('', TemplateView.as_view(template_name="index.html")),
+    path('about.html', TemplateView.as_view(template_name="about.html")),
+    path('home.html', TemplateView.as_view(template_name="home.html")),
+    path('image.html', TemplateView.as_view(template_name="image.html")),
+    path('index.html', TemplateView.as_view(template_name="index.html")),
+    path('main_slider.html', TemplateView.as_view(template_name="main_slider.html")),
+    path('mini_slider.html', TemplateView.as_view(template_name="mini_slider.html")),
+    path('navbar.html', TemplateView.as_view(template_name="navbar.html")),
+    path('products_category.html', TemplateView.as_view(template_name="products_category.html")),
+    path('products.html', TemplateView.as_view(template_name="products.html")),
+    path('services.html', TemplateView.as_view(template_name="services.html")),
+    path('slider.html', TemplateView.as_view(template_name="slider.html")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

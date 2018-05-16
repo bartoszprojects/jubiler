@@ -25,7 +25,7 @@ SECRET_KEY = 'ydya9d8+acsu0a%y#r2)mkec@&ay=9&ibsr(tlb*da-so3)6sx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["test.slojewski.pl", "slojewski.pl", "www.slojewski.pl", ]
 
 
 # Application definition
@@ -159,7 +159,7 @@ STATICFILES_DIRS = [
     os.path.join(BASE_DIR, "static")
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
-
+TEMPLATE_ROOT = os.path.join(BASE_DIR, "templates")
 MEDIA_ROOT = os.path.join(BASE_DIR, "media")
 
 MEDIA_URL = '/media/'
