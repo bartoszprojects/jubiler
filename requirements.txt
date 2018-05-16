@@ -1,0 +1,5 @@
+Django==2.0.5
+djangorestframework==3.8.2
+Pillow
+django-ckeditor
+django-imagekit
