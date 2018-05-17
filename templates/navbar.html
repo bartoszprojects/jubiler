@@ -1,4 +1,4 @@
-
+{% verbatim %}
 <nav id="main_navbar">
 
     <ul>
@@ -17,11 +17,14 @@
                 <a ui-sref="products">Produkty</a>
             </span>
         </li>
-        <li><a ui-sref="services">Usługi</a></li>
+        <li><span ui-sref-active="activeState">
+                <a ui-sref="services">Usługi</a>
+            </span>
+        </li>
 
         <li><a ui-sref="home({'#': 'contact'})">Kontakt</a></li>
     </ul>
 </nav>
 
 
-
+{% endverbatim %}

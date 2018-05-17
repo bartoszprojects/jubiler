@@ -38,23 +38,23 @@ app.service('getDataService', ['$http', function ($http) {
     this.jsonData = function () {
         return {
             'mini_slides_ind':
-                $http.get('http://127.0.0.1:8000/slides/mini_slides_ind'),
+                $http.get('/slides/mini_slides_ind'),
             'mini_slides_engraving':
-                $http.get('http://127.0.0.1:8000/slides/mini_slides_engraving'),
+                $http.get('/slides/mini_slides_engraving'),
             'mini_slides_repair':
-                $http.get('http://127.0.0.1:8000/slides/mini_slides_repair'),
+                $http.get('/slides/mini_slides_repair'),
             'main_slider':
-                $http.get('http://127.0.0.1:8000/slides/main_slider'),
+                $http.get('/slides/main_slider'),
             'about_informations':
-                $http.get('http://127.0.0.1:8000/slides/about_informations'),
+                $http.get('/slides/about_informations'),
             'products':
-                $http.get('http://127.0.0.1:8000/products/all'),
+                $http.get('/products/all'),
             'mini_products':
-                $http.get('http://127.0.0.1:8000/products/mini_products'),
+                $http.get('/products/mini_products'),
             'products_category':
-                $http.get('http://127.0.0.1:8000/products/products_category'),
+                $http.get('/products/products_category'),
             'services':
-                $http.get('http://127.0.0.1:8000/slides/services')
+                $http.get('/slides/services')
         }
     }
 }]);
