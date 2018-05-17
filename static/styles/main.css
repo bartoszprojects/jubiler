@@ -9,7 +9,10 @@ a {
   text-decoration: none; }
 
 .activeState a {
-  color: #e5d99f !important; }
+  color: #FFEAD0 !important; }
+
+.float_left_wrapper {
+  float: left; }
 
 #container {
   max-width: 1100px;
@@ -38,7 +41,7 @@ img {
       float: left;
       margin-left: 29px; }
       #main_navbar ul li a {
-        line-height: 35px;
+        line-height: 40px;
         color: white; }
 
 #main_slider {
@@ -59,35 +62,34 @@ img {
       width: 100%; }
     #main_slider .slide_content img.logo {
       width: 100%;
-      height: calc(100% + 34px); }
-    #main_slider .slide_content #slider_logo_text {
+      height: calc(100% + 40px); }
+    #main_slider .slide_content .main_slider_contact_area {
+      width: 30%;
+      height: 50px;
+      background: rgba(0, 0, 0, 0.5); }
+    #main_slider .slide_content #main_slider_contact {
       width: 30%;
       position: absolute;
-      top: 30px;
-      left: 10%; }
-      #main_slider .slide_content #slider_logo_text #slider_text {
-        margin-top: 11px;
-        text-align: center;
-        padding: 1px 31px 1px 31px;
-        font-weight: bold;
-        font-size: 13px;
-        border-radius: 10px;
-        letter-spacing: 1px;
-        color: #4d4d4d; }
-      #main_slider .slide_content #slider_logo_text p {
-        text-align: center; }
-      #main_slider .slide_content #slider_logo_text #slider_logo img {
-        width: 215px; }
-    #main_slider .slide_content .slider_baner {
-      width: 100%;
-      height: 50px;
-      background: rgba(0, 0, 0, 0.5);
-      position: absolute;
-      top: 91.5%;
-      text-align: center;
-      font-size: 16px;
+      top: 0;
+      right: 0;
+      height: 100%;
+      background: rgba(155, 133, 127, 0.56);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       color: white;
+      text-align: center;
       font-weight: bold; }
+    #main_slider .slide_content .main_slider_mini_img {
+      position: absolute;
+      top: 55%;
+      left: 0;
+      width: 35%; }
+    #main_slider .slide_content .main_slider_mini_img2 {
+      position: absolute;
+      top: 10%;
+      left: 0%;
+      width: 27%; }
 
 #main_slider_mini {
   width: 100%; }
@@ -114,7 +116,8 @@ img {
   background-color: rgba(0, 0, 0, 0.6);
   top: 100%;
   width: 100%;
-  z-index: 9999; }
+  z-index: 9999;
+  height: 40px; }
 
 .fixed {
   position: fixed; }
@@ -246,10 +249,6 @@ img {
     background: -webkit-linear-gradient(right, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
     background: linear-gradient(to left, #1e5799 0%, #f4e0d9 0%, white 99%, white 100%, white 100%, white 101%);
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#1e5799', endColorstr='#ffffff',GradientType=1 ); }
-
-.services_single_container {
-  text-align: center;
-  padding: 40px; }
 
 #contact {
   width: 100%;
@@ -395,12 +394,34 @@ img {
     .products ul li:last-child {
       border-right: 0.6px solid #d8c1ba; }
 
-.other_products_display ul li {
-  display: flex;
-  flex-direction: column;
-  height: auto; }
-  .other_products_display ul li img {
-    margin: auto; }
+.other_products_display {
+  width: 100%;
+  padding: 5px;
+  margin-top: 25px;
+  margin-bottom: 25px; }
+  .other_products_display ul {
+    display: flex; }
+    .other_products_display ul li {
+      width: 100%;
+      height: auto;
+      border: 0.5px solid silver;
+      padding: 5px;
+      margin: 5px;
+      display: flex;
+      flex-direction: column; }
+      .other_products_display ul li img {
+        margin: auto; }
+  .other_products_display .products_button {
+    width: 100%;
+    display: flex;
+    margin-top: 15px; }
+    .other_products_display .products_button button {
+      margin: auto;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 10px 25px 10px 25px;
+      border: 0.6px solid #d8c1ba;
+      font-size: 12px;
+      color: #4f4f4f; }
 
 .single_product {
   display: flex;
@@ -418,7 +439,6 @@ img {
 .subsite_wrapper {
   width: 100%;
   min-height: 300px;
-  padding: 25px;
   float: left; }
 
 .products_category {
@@ -457,5 +477,18 @@ img {
 @media screen and (max-width: 1100px) {
   .child {
     width: 100% !important; } }
+/******************* services **************** */
+.services_single_container {
+  background: #fdfaf8;
+  margin-top: 50px;
+  padding: 10px 50px 50px 50px;
+  text-align: center;
+  font-weight: bold;
+  font-size: 14px; }
+  .services_single_container h4 {
+    padding: 15px;
+    font-size: 27px;
+    color: black;
+    border-bottom: 0.5px solid #947d74; }
 
 /*# sourceMappingURL=main.css.map */

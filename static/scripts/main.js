@@ -85,6 +85,24 @@ app.controller('aboutController', function ($scope, getDataService, $sce) {
     }
 });
 
+app.controller('servicesController', function ($scope, getDataService, $sce) {
+    getDataService.jsonData().services.then(ready_data);
+
+    function ready_data(response) {
+        $scope.services = response.data;
+        $scope.snippet = response.data[0].content;
+
+        $scope.deliberatelyTrustDangerousSnippet = function () {
+            return $sce.trustAsHtml($scope.snippet);
+        };
+
+        console.log('services ', $scope.services[0]);
+        console.log('title ', $scope.services[0].title);
+        console.log('title ', $scope.services[0].images);
+
+    }
+});
+
 app.controller('productsController', function ($scope, getDataService) {
     console.log('prodoctsController');
     getDataService.jsonData().products.then(ready_data);
@@ -128,17 +146,7 @@ app.controller('miniproducstController', function ($scope, getDataService) {
     }
 });
 
-app.controller('servicesController', function ($scope, getDataService) {
-    getDataService.jsonData().services.then(ready_data);
 
-    function ready_data(response) {
-        $scope.services = response.data;
-        console.log('services ', $scope.services[0]);
-        console.log('title ', $scope.services[0].title);
-        console.log('title ', $scope.services[0].images);
-
-    }
-});
 
 
 app.directive('slider', function () {

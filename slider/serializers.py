@@ -32,6 +32,7 @@ class ServiceSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Service
+        use_url = True
         fields = ('id','title','images','content')
         read_only_fields = ('images',)
     def get_images(self,obj):

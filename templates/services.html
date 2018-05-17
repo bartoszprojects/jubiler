@@ -1,18 +1,13 @@
 <minislider></minislider>
-
-
-
-
         <div class="subsite_wrapper">
             <div class="services_single_container" ng-repeat="element in services">
                 <h4>{{ element.title }}</h4>
-                <p>{{ element.content }}
-                <div class="products other_products_display" ng-controller="MiniSlider">
+                <div ng-bind-html="deliberatelyTrustDangerousSnippet()"></div>
+                <div class="other_products_display" ng-controller="MiniSlider">
                     <ul>
 
                         <li ng-repeat="image in element.images">
-                            <img src="{{ image }}"/>
-                            <p>{{ image }}</p>
+                            <img src="http://127.0.0.1:8000{{ image }}"/>
                         </li>
                     </ul>
                 </div>
