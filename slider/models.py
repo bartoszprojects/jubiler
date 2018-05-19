@@ -24,8 +24,8 @@ class MiniSliderOfferIndividual(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Strona Główna - Slajder: Na zamówienie'
-        verbose_name_plural = 'Strona Główna - Slajder: Na zamówienie'
+        verbose_name = 'Strona Główna - Slajder: Biżuteria na zamówienie'
+        verbose_name_plural = 'Strona Główna - Slajder: Biżuteria na zamówienie'
 
 
 class MiniSliderOfferRepair(models.Model):
@@ -36,8 +36,8 @@ class MiniSliderOfferRepair(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Strona Główna - Slajder: Naprawa'
-        verbose_name_plural = 'Strona Główna - Slajder: Naprawa'
+        verbose_name = 'Strona Główna - Slajder: Naprawa biżuterii'
+        verbose_name_plural = 'Strona Główna - Slajder: Naprawa biżuterii'
 
 
 
@@ -49,8 +49,8 @@ class MiniSliderOfferEngraving(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Strona Główna - Slajder: Grawerowanie'
-        verbose_name_plural = 'Strona Główna - Slajder: Grawerowanie'
+        verbose_name = 'Strona Główna - Slajder: Obróbka i grawerowanie'
+        verbose_name_plural = 'Strona Główna - Slajder: Obróbka i grawerowanie'
 
 
 class AboutInformations(models.Model):
@@ -61,8 +61,8 @@ class AboutInformations(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Podstrona O firmie'
-        verbose_name_plural = 'Podstrona O firmie'
+        verbose_name = 'Podstrona: O firmie'
+        verbose_name_plural = 'Podstrona: O firmie'
 
 
 
@@ -73,13 +73,19 @@ class Service(models.Model):
     def __str__(self):
         return self.title
 
+    class Meta:
+        verbose_name = 'Podstrona: Oferta'
+        verbose_name_plural = 'Podstrona: Oferta'
+
 class ServiceImages(models.Model):
     image = models.ImageField(upload_to='media', blank=True)
     title = models.CharField(max_length=25, default=0)
     service = models.ForeignKey(Service, related_name='service_images', on_delete=models.CASCADE, default=0)
 
-
-
     def __str__(self):
         return self.title
+
+    class Meta:
+        verbose_name = 'Podstrona: Oferta - dodawanie zdjęć'
+        verbose_name_plural = 'Podstrona: Oferta - dodawanie zdjęć'
 

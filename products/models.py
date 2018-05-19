@@ -9,8 +9,8 @@ class ProductsMini(models.Model):
     image = models.ImageField(upload_to='media', blank=True)
 
     class Meta:
-        verbose_name = 'Galeria produktów - Strona Główna'
-        verbose_name_plural = 'Galeria produktów - Strona Główna'
+        verbose_name = 'Galeria - Wybrane Produkty'
+        verbose_name_plural = 'Galeria - Wybrane Produkty'
 
     def __str__(self):
         return self.title
@@ -23,8 +23,8 @@ class ProductsCategory(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Kategorie produktów'
-        verbose_name_plural = 'Kategorie produktów'
+        verbose_name = 'Kategorie Pproduktów'
+        verbose_name_plural = 'Kategorie Produktów'
 
 
 class MainProducts(models.Model):

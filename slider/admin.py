@@ -2,7 +2,6 @@ from django.contrib import admin
 from . models import MainSlider, MiniSliderOfferEngraving, MiniSliderOfferIndividual, MiniSliderOfferRepair,\
     AboutInformations, Service, ServiceImages
 # Register your models here.
-admin.site.register(MainSlider)
 admin.site.register(MiniSliderOfferEngraving)
 admin.site.register(MiniSliderOfferIndividual)
 admin.site.register(MiniSliderOfferRepair)
@@ -20,7 +19,7 @@ class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
     class Meta:
         model = AboutInformations
-        fields = ('content',)
+        fields = ('title', 'content',)
 
 class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
