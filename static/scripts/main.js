@@ -33,7 +33,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
         //     controller: 'productsCategoryController'
         // })
         .state('products.product_detail',{
-            url: '/:Id',
+            url: '/product_detail/:Id',
             templateUrl: 'product.html',
             controller: 'productController'
         })
