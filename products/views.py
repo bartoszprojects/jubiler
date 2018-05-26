@@ -2,7 +2,6 @@ from django.shortcuts import render
 from rest_framework import generics
 from . serializers import MainProductsSerializer, MiniProductsSerializer, ProductsCategorySerializer
 from . models import MainProducts, ProductsMini, ProductsCategory
-# Create your views here.
 
 class ProductsView(generics.ListAPIView):
     queryset = MainProducts.objects.all()
@@ -15,3 +14,10 @@ class MiniProductsView(generics.ListAPIView):
 class ProductsCategoryView(generics.ListAPIView):
     queryset = ProductsCategory.objects.all()
     serializer_class = ProductsCategorySerializer
+
+class ProductDetail(generics.RetrieveAPIView):
+        queryset = MainProducts.objects.all()
+        serializer_class = MainProductsSerializer
+
+        def get_object(self):
+            return MainProducts.objects.get(id=self.kwargs.get("pk"))

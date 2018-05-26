@@ -1,4 +1,4 @@
-const app = angular.module('app', ['ngAnimate', 'ui.router', 'ngSanitize']);
+var app = angular.module('app', ['ngAnimate', 'ui.router', 'ngSanitize']);
 
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
@@ -22,15 +22,20 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'products.html',
             controller: 'productsController'
         })
-        .state('products.products_category', {
-            url: '/products_category/:categoryId',
-            templateUrl: 'products_category.html',
-            controller: 'productsCategoryController'
-        })
-        .state('products.products_category.image', {
-            url: '/image/:imageId',
-            templateUrl: 'image.html',
-            controller: 'productsCategoryController'
+        // .state('products.products_category', {
+        //     url: '/products_category/:categoryId',
+        //     templateUrl: 'products_category.html',
+        //     controller: 'productsCategoryController'
+        // })
+        // .state('products.products_category.image', {
+        //     url: '/image/:imageId',
+        //     templateUrl: 'image.html',
+        //     controller: 'productsCategoryController'
+        // })
+        .state('products.product_detail',{
+            url: '/:Id',
+            templateUrl: 'product.html',
+            controller: 'productController'
         })
 });
 
@@ -53,9 +58,14 @@ app.service('getDataService', ['$http', function ($http) {
                 $http.get('/products/mini_products'),
             'products_category':
                 $http.get('/products/products_category'),
+            'product_detail':
+                $http.get('/products/product_detail'),
             'services':
                 $http.get('/slides/services')
         }
+    };
+    this.getproduct = function(product_id) {
+        return $http.get('/products/product_detail', {pk:product_id})
     }
 }]);
 
@@ -102,10 +112,23 @@ app.controller('servicesController', function ($scope, getDataService, $sce) {
 
     }
 });
+app.controller('productController', function ($scope, getDataService, $stateParams) {
 
-app.controller('productsController', function ($scope, getDataService) {
+    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAA', $stateParams.Id);
+    getDataService.getproduct($stateParams.Id).then(ready_data_detail);
+
+    function ready_data_detail(response) {
+        $scope.product = response.data;
+    }
+
+});
+app.controller('productsController', function ($scope, getDataService, $stateParams) {
     console.log('prodoctsController');
+
+
+
     getDataService.jsonData().products.then(ready_data);
+
 
     var element = document.getElementById("active_products");
     element.classList.add("active_all_products");
@@ -114,8 +137,8 @@ app.controller('productsController', function ($scope, getDataService) {
         $scope.products = response.data;
         console.log('products: ', response.data);
         $scope.loadingImage = '../static/images/loading.gif';
+        console.log('$scope.products')
     }
-
 });
 
 app.controller('productsCategoryController', function ($scope, getDataService, $stateParams) {
@@ -124,15 +147,10 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
     var element = document.getElementById("active_products");
     element.classList.remove("active_all_products");
 
-
     function ready_data(response) {
         $scope.categories = response.data;
         $scope.single_category = response.data[$stateParams.categoryId];
-
-        if (response.data[$stateParams.categoryId].category) {
-            $scope.single_image = response.data[$stateParams.categoryId].category[$stateParams.imageId];
-        }
-        console.log('categories', $scope.categories)
+        $scope.single_image = response.data[$stateParams.categoryId].category[$stateParams.imageId];
     }
 });
 
