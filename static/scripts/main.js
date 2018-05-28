@@ -22,18 +22,18 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'products.html',
             controller: 'productsController'
         })
-        // .state('products.products_category', {
-        //     url: '/products_category/:categoryId',
-        //     templateUrl: 'products_category.html',
-        //     controller: 'productsCategoryController'
-        // })
-        // .state('products.products_category.image', {
-        //     url: '/image/:imageId',
-        //     templateUrl: 'image.html',
-        //     controller: 'productsCategoryController'
-        // })
-        .state('products.product_detail',{
-            url: '/product_detail/:Id',
+        .state('products.products_category', {
+            url: '/products_category/:categoryId',
+            templateUrl: 'products_category.html',
+            controller: 'productsCategoryController'
+        })
+        .state('products.products_category.image', {
+            url: '/image/:imageId',
+            templateUrl: 'image.html',
+            controller: 'productsCategoryController'
+        })
+        .state('products.product_details',{
+            url: '/product_details/:productId',
             templateUrl: 'product.html',
             controller: 'productController'
         })
@@ -58,20 +58,16 @@ app.service('getDataService', ['$http', function ($http) {
                 $http.get('/products/mini_products'),
             'products_category':
                 $http.get('/products/products_category'),
-            'product_detail':
-                $http.get('/products/product_detail'),
             'services':
                 $http.get('/slides/services')
         }
     };
     this.getproduct = function(product_id) {
-        return $http.get('/products/product_detail', {pk:product_id})
+        return $http.get('/products/product_details/'+product_id, {pk:product_id})
     }
 }]);
 
 app.controller('mainSliderController', function ($scope, getDataService, $rootScope) {
-
-    console.log('from mainSliderController');
     getDataService.jsonData().main_slider.then(ready_data);
 
     function ready_data(response) {
@@ -84,7 +80,6 @@ app.controller('mainSliderController', function ($scope, getDataService, $rootSc
 
 app.controller('aboutController', function ($scope, getDataService, $sce) {
 
-    console.log('from about_informations');
     getDataService.jsonData().about_informations.then(ready_data);
 
     function ready_data(response) {
@@ -100,44 +95,31 @@ app.controller('servicesController', function ($scope, getDataService, $sce) {
 
     function ready_data(response) {
         $scope.services = response.data;
-        $scope.snippet = response.data[0].content;
 
-        $scope.deliberatelyTrustDangerousSnippet = function () {
-            return $sce.trustAsHtml($scope.snippet);
+        $scope.MakeTrustedDjangoCKEDITORContent = function (snippet_number) {
+            return $sce.trustAsHtml(response.data[snippet_number].content);
         };
-
-        console.log('services ', $scope.services[0]);
-        console.log('title ', $scope.services[0].title);
-        console.log('title ', $scope.services[0].images);
-
     }
 });
+
 app.controller('productController', function ($scope, getDataService, $stateParams) {
 
-    console.log('AAAAAAAAAAAAAAAAAAAAAAAAAAA', $stateParams.Id);
-    getDataService.getproduct($stateParams.Id).then(ready_data_detail);
-
-    function ready_data_detail(response) {
+    getDataService.getproduct($stateParams.productId).then(ready_data);
+    function ready_data(response) {
         $scope.product = response.data;
     }
-
 });
+
 app.controller('productsController', function ($scope, getDataService, $stateParams) {
-    console.log('prodoctsController');
-
-
 
     getDataService.jsonData().products.then(ready_data);
-
 
     var element = document.getElementById("active_products");
     element.classList.add("active_all_products");
 
     function ready_data(response) {
         $scope.products = response.data;
-        console.log('products: ', response.data);
         $scope.loadingImage = '../static/images/loading.gif';
-        console.log('$scope.products')
     }
 });
 
@@ -155,17 +137,12 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
 });
 
 app.controller('miniproducstController', function ($scope, getDataService) {
-    console.log('miniproductsController');
     getDataService.jsonData().mini_products.then(ready_data);
 
     function ready_data(response) {
         $scope.products = response.data;
-        console.log('mini products ', response.data)
     }
 });
-
-
-
 
 app.directive('slider', function () {
         return {
@@ -200,13 +177,10 @@ app.directive('slider', function () {
                         $scope.image = $scope.data[$scope.currentPosition].image;
                     }
                 };
-
-
             }
         }
     }
 );
-
 
 app.controller('MiniSlider', function ($scope, getDataService) {
     getDataService.jsonData().mini_slides_ind.then(function (response) {
@@ -219,7 +193,6 @@ app.controller('MiniSlider', function ($scope, getDataService) {
         $scope.mini_slides_repair = response.data;
     });
 });
-
 
 function directiveSliderFunction() {
     window.onscroll = function () {
@@ -268,5 +241,3 @@ app.directive('mainslider', function () {
         controller: 'mainSliderController'
     }
 });
-
-

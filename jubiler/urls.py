@@ -39,6 +39,7 @@ urlpatterns = [
     path('products.html', TemplateView.as_view(template_name="products.html")),
     path('services.html', TemplateView.as_view(template_name="services.html")),
     path('slider.html', TemplateView.as_view(template_name="slider.html")),
+    path('product.html', TemplateView.as_view(template_name="product.html")),
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
