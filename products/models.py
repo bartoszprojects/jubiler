@@ -23,15 +23,12 @@ class ProductsCategory(models.Model):
         return self.title
 
     class Meta:
-        verbose_name = 'Kategorie Pproduktów'
+        verbose_name = 'Kategorie Produktów'
         verbose_name_plural = 'Kategorie Produktów'
-
 
 class MainProducts(models.Model):
     title = models.CharField(max_length=50, blank=True)
     desc = models.TextField(blank=True)
-    image = models.ImageField(upload_to='media', blank=True)
-    image_thumbnail = ImageSpecField(source='image',processors=[ResizeToFill(500,500)],format='JPEG',options={'quality':60})
     category = models.ManyToManyField(ProductsCategory, related_name='category', default='', null=True, blank=True)
 
     def __str__(self):
@@ -40,3 +37,16 @@ class MainProducts(models.Model):
     class Meta:
         verbose_name = 'Produkty'
         verbose_name_plural = 'Produkty'
+
+class ProductsImages(models.Model):
+    title = models.CharField(max_length=50, blank=True)
+    image = models.ImageField(upload_to='media', blank=True)
+    image_thumbnail = ImageSpecField(source='image',processors=[ResizeToFill(500,500)],format='JPEG',options={'quality':60})
+    to_product = models.ForeignKey(MainProducts, related_name='to_product', on_delete=models.CASCADE,  default='', null=True, blank=True)
+
+    def __str__(self):
+        return self.title
+
+    class Meta:
+        verbose_name = 'Zdjęcia Produktu'
+        verbose_name_plural = 'Zdjęcia Produktu'

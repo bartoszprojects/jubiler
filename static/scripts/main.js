@@ -107,6 +107,10 @@ app.controller('productController', function ($scope, getDataService, $statePara
     getDataService.getproduct($stateParams.productId).then(ready_data);
     function ready_data(response) {
         $scope.product = response.data;
+        $scope.image_in_product = $scope.product.to_product[0];
+         $scope.clickMe = function(number) {
+            $scope.image_in_product = $scope.product.to_product[number]
+        }
     }
 });
 
