@@ -176,14 +176,20 @@ img {
             background: #7c8ea4;
             border: none;
             color: white;
-            padding: 8px 30px 8px 30px;
             display: block;
             margin-left: auto;
             margin-right: auto;
             margin-top: 5px;
             font-weight: bold;
             font-size: 12px;
-            letter-spacing: 0.5px; }
+            letter-spacing: 0.5px;
+            border-radius: 25px; }
+            .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text button:hover {
+              background: #8FA4BD; }
+            .offer .offer_ind .offer_ind_left .offer_ind_left_box .offer_ind_left_box_text button a {
+              color: white;
+              padding: 8px 15px 8px 15px;
+              float: left; }
     .offer .offer_ind .offer_ind_right {
       float: left;
       height: 320px;
@@ -431,6 +437,11 @@ img {
       border: 0.6px solid #d8c1ba;
       font-size: 12px;
       color: #4f4f4f; }
+      .other_products_display .products_button button:hover {
+        background: #7c8ea4;
+        border: 0.6px solid #7c8ea4; }
+        .other_products_display .products_button button:hover a {
+          color: white; }
 
 .single_product {
   text-align: center;

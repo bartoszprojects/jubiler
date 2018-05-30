@@ -4,7 +4,7 @@
         <h4>{{ single_category.title }}</h4>
         <ul>
             <li ng-repeat="category in single_category.category">
-                <a class="product_wrapper" ui-sref="products.products_category.image({ imageId: $index })">
+                <a class="product_wrapper" ui-sref="products.products_category.image({ imageId: $index, '#': 'triangle' })">
                     <p class="product_title">{{ category.title|limitTo: 30 }}</p>
                     <img class="product_image" src="{{ category.to_product.image.small[0] }}"/>
                     <p class="product_desc"><span>{{ category.desc|limitTo: 100}} ..</span></p>

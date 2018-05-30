@@ -12,7 +12,7 @@
         </ul>
     </div>
 
-    <div class="products_category" ng-controller="productsCategoryController">
+    <div id="triangle" class="products_category" ng-controller="productsCategoryController">
         <ul>
             <li id="active_products" class="products_category_li">
                 <p><a ui-sref="products">wszystkie produkty</a></p>
@@ -30,7 +30,7 @@
         <div class="products sub_products" ng-controller="productsController">
             <ul>
                 <li ng-repeat="product in products">
-                    <a ui-sref="products.product_details({ productId : product.id })" class="product_wrapper">
+                    <a ui-sref="products.product_details({ productId : product.id, '#': 'triangle' })" class="product_wrapper">
                         <p class="product_title">{{ product.title|limitTo: 30 }}</p>
                         <img class="product_image" src="{{ product.to_product.image.small[0] }}"/>
                         <p class="product_desc"><span>{{ product.desc|limitTo: 100 }} ..</span></p>
