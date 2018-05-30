@@ -4,7 +4,7 @@
     <div class="services_single_container" ng-repeat="element in services">
         <h4>{{ element.title }}</h4>
         <div ng-bind-html="MakeTrustedDjangoCKEDITORContent($index)"></div>
-        <div class="other_products_display" ng-controller="MiniSlider">
+        <div class="other_products_display">
             <ul>
 
                 <li ng-repeat="image in element.images">

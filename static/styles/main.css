@@ -407,6 +407,10 @@ img {
       padding: 5px;
       margin: 5px;
       position: relative; }
+      .other_products_display ul li.hand-pointer {
+        cursor: pointer; }
+      .other_products_display ul li.hand-pointer:hover {
+        opacity: 0.6; }
       .other_products_display ul li img {
         position: absolute;
         top: 0;
@@ -436,8 +440,6 @@ img {
   .single_product .single_product_container {
     background: #e5e5e5;
     padding: 20px; }
-    .single_product .single_product_container img {
-      width: 100%; }
 
 .subsite_wrapper {
   width: 100%;

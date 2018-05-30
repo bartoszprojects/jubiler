@@ -10,5 +10,6 @@ urlpatterns = [
     path('about_informations', AboutInformationsSerializerData.as_view()),
     path('services', ServiceSerializerData.as_view()),
     path('servicesimages', ServiceImagesSerializerData.as_view()),
-
 ]
+
+

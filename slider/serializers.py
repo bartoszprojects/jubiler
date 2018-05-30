@@ -3,19 +3,22 @@ from . models import MainSlider, MiniSliderOfferEngraving, MiniSliderOfferRepair
 from rest_framework import serializers
 
 class MiniSliderOfferIndividualSerializer(serializers.ModelSerializer):
+    image_thumbnail = serializers.ImageField()
     class Meta:
         model = MiniSliderOfferIndividual
-        fields = ('id','title', 'image')
+        fields = ('id','title', 'image', 'image_thumbnail')
 
 class MiniSliderOfferRepairSerializer(serializers.ModelSerializer):
+    image_thumbnail = serializers.ImageField()
     class Meta:
         model = MiniSliderOfferRepair
-        fields = ('id','title', 'image')
+        fields = ('id','title', 'image', 'image_thumbnail')
 
 class MiniSliderOfferEngravingSerializer(serializers.ModelSerializer):
+    image_thumbnail = serializers.ImageField()
     class Meta:
         model = MiniSliderOfferEngraving
-        fields = ('id','title', 'image')
+        fields = ('id','title', 'image', 'image_thumbnail')
 
 class MainSliderSerializer(serializers.ModelSerializer):
     class Meta:

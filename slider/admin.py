@@ -5,15 +5,10 @@ from . models import MainSlider, MiniSliderOfferEngraving, MiniSliderOfferIndivi
 admin.site.register(MiniSliderOfferEngraving)
 admin.site.register(MiniSliderOfferIndividual)
 admin.site.register(MiniSliderOfferRepair)
-admin.site.register(Service)
-admin.site.register(ServiceImages)
-
-
 
 from django import forms
 from ckeditor.widgets import CKEditorWidget
 from ckeditor_uploader.widgets import CKEditorUploadingWidget
-
 
 class PostAdminForm(forms.ModelForm):
     content = forms.CharField(widget=CKEditorUploadingWidget())
@@ -25,3 +20,14 @@ class PostAdmin(admin.ModelAdmin):
     form = PostAdminForm
 
 admin.site.register(AboutInformations, PostAdmin)
+
+class ServiceImagesInline(admin.StackedInline):
+    model = ServiceImages
+    fields = ['image', ]
+
+class ServicesAdmin(admin.ModelAdmin):
+    inlines = [
+        ServiceImagesInline,
+    ]
+
+admin.site.register(Service, ServicesAdmin)

@@ -2,8 +2,6 @@ from django.db import models
 from imagekit.models import ImageSpecField
 from imagekit.processors import ResizeToFill
 
-# Create your models here.
-
 class ProductsMini(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='media', blank=True)
@@ -14,7 +12,6 @@ class ProductsMini(models.Model):
 
     def __str__(self):
         return self.title
-
 
 class ProductsCategory(models.Model):
     title = models.CharField(max_length=50, default='title')

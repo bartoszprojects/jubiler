@@ -32,7 +32,7 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'image.html',
             controller: 'productsCategoryController'
         })
-        .state('products.product_details',{
+        .state('products.product_details', {
             url: '/product_details/:productId',
             templateUrl: 'product.html',
             controller: 'productController'
@@ -62,8 +62,8 @@ app.service('getDataService', ['$http', function ($http) {
                 $http.get('/slides/services')
         }
     };
-    this.getproduct = function(product_id) {
-        return $http.get('/products/product_details/'+product_id, {pk:product_id})
+    this.getproduct = function (product_id) {
+        return $http.get('/products/product_details/' + product_id, {pk: product_id})
     }
 }]);
 
@@ -79,7 +79,6 @@ app.controller('mainSliderController', function ($scope, getDataService, $rootSc
 });
 
 app.controller('aboutController', function ($scope, getDataService, $sce) {
-
     getDataService.jsonData().about_informations.then(ready_data);
 
     function ready_data(response) {
@@ -103,21 +102,22 @@ app.controller('servicesController', function ($scope, getDataService, $sce) {
 });
 
 app.controller('productController', function ($scope, getDataService, $stateParams) {
-
     getDataService.getproduct($stateParams.productId).then(ready_data);
+
     function ready_data(response) {
         $scope.product = response.data;
-        $scope.image_in_product = $scope.product.to_product[0];
-         $scope.clickMe = function(number) {
-            $scope.image_in_product = $scope.product.to_product[number]
+        $scope.image_in_product = $scope.product.to_product.image.large[0];
+        $scope.large_image = $scope.product.to_product.image.large;
+        $scope.small_image = $scope.product.to_product.image.small;
+        $scope.clickMe = function (number) {
+            $("#image_animation").hide().fadeIn();
+            $scope.image_in_product = $scope.large_image[number]
         }
     }
 });
 
 app.controller('productsController', function ($scope, getDataService, $stateParams) {
-
     getDataService.jsonData().products.then(ready_data);
-
     var element = document.getElementById("active_products");
     element.classList.add("active_all_products");
 
@@ -129,7 +129,6 @@ app.controller('productsController', function ($scope, getDataService, $statePar
 
 app.controller('productsCategoryController', function ($scope, getDataService, $stateParams) {
     getDataService.jsonData().products_category.then(ready_data);
-
     var element = document.getElementById("active_products");
     element.classList.remove("active_all_products");
 
@@ -137,6 +136,16 @@ app.controller('productsCategoryController', function ($scope, getDataService, $
         $scope.categories = response.data;
         $scope.single_category = response.data[$stateParams.categoryId];
         $scope.single_image = response.data[$stateParams.categoryId].category[$stateParams.imageId];
+
+        $scope.large_image = $scope.single_image.to_product.image.large;
+        $scope.small_image = $scope.single_image.to_product.image.small;
+
+        $scope.image_in_product = $scope.single_image.to_product.image.large[0];
+
+        $scope.clickMe = function (number) {
+            $("#image_animation").hide().fadeIn();
+            $scope.image_in_product = $scope.single_image.to_product.image.large[number]
+        }
     }
 });
 
@@ -159,26 +168,26 @@ app.directive('slider', function () {
             controller: function ($scope, $interval) {
 
                 $scope.currentPosition = 0;
-                $scope.image = $scope.data[$scope.currentPosition].image;
+                $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
 
                 $scope.nextSlide = function () {
                     if ($scope.currentPosition < $scope.data.length - 1) {
                         $scope.currentPosition += 1;
 
-                        $scope.image = $scope.data[$scope.currentPosition].image;
+                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
 
                     } else {
                         $scope.currentPosition = 0;
-                        $scope.image = $scope.data[$scope.currentPosition].image;
+                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
                     }
                 };
                 $scope.previousSlide = function () {
                     if ($scope.currentPosition > 0) {
                         $scope.currentPosition -= 1;
-                        $scope.image = $scope.data[$scope.currentPosition].image;
+                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
                     } else {
                         $scope.currentPosition = $scope.data.length - 1;
-                        $scope.image = $scope.data[$scope.currentPosition].image;
+                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
                     }
                 };
             }

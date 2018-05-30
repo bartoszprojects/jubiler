@@ -1,7 +1,7 @@
 from django.db import models
 from ckeditor_uploader.fields import RichTextUploadingField
-
-# Create your models here.
+from imagekit.models import ImageSpecField
+from imagekit.processors import ResizeToFill
 
 class MainSlider(models.Model):
     text = models.TextField()
@@ -19,7 +19,7 @@ class MainSlider(models.Model):
 class MiniSliderOfferIndividual(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='media', blank=True)
-
+    image_thumbnail = ImageSpecField(source='image',processors=[ResizeToFill(400,400)],format='JPEG',options={'quality':60})
     def __str__(self):
         return self.title
 
@@ -31,6 +31,7 @@ class MiniSliderOfferIndividual(models.Model):
 class MiniSliderOfferRepair(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='media', blank=True)
+    image_thumbnail = ImageSpecField(source='image',processors=[ResizeToFill(400,400)],format='JPEG',options={'quality':60})
 
     def __str__(self):
         return self.title
@@ -44,6 +45,7 @@ class MiniSliderOfferRepair(models.Model):
 class MiniSliderOfferEngraving(models.Model):
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='media', blank=True)
+    image_thumbnail = ImageSpecField(source='image',processors=[ResizeToFill(400,400)],format='JPEG',options={'quality':60})
 
     def __str__(self):
         return self.title
@@ -51,7 +53,6 @@ class MiniSliderOfferEngraving(models.Model):
     class Meta:
         verbose_name = 'Strona Główna - Slajder: Obróbka i grawerowanie'
         verbose_name_plural = 'Strona Główna - Slajder: Obróbka i grawerowanie'
-
 
 class AboutInformations(models.Model):
     title = models.CharField(max_length=50)
@@ -63,8 +64,6 @@ class AboutInformations(models.Model):
     class Meta:
         verbose_name = 'Podstrona: O firmie'
         verbose_name_plural = 'Podstrona: O firmie'
-
-
 
 class Service(models.Model):
     title = models.CharField(max_length=100, default=0)

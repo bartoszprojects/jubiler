@@ -2,17 +2,24 @@
 <div class="subsite_wrapper">
 
 
-<div class="single_product">
+    <div class="single_product">
 
-    <div class="single_product_container">
+        <div class="single_product_container">
 
             <p class="product_title">{{ single_image.title }}</p>
-            <img class="product_image" src="{{ single_image.image }}"/>
+            <img id="image_animation" class="product_image" src="{{ image_in_product }}"/>
+            <div class="other_products_display">
+                <ul ng-if="small_image.length > 1">
+                    <li class="hand-pointer" ng-repeat="img in small_image">
+                        <img ng-click="clickMe($index)" src="{{ img }}"/>
+                    </li>
+                </ul>
+            </div>
             <p class="product_desc"><span>{{ single_image.desc }} ..</span></p>
 
-    </div>
+        </div>
 
-</div>
+    </div>
 </div>
 {% endverbatim %}
 
