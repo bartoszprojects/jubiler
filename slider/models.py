@@ -66,7 +66,7 @@ class AboutInformations(models.Model):
         verbose_name_plural = 'Podstrona: O firmie'
 
 class Service(models.Model):
-    title = models.CharField(max_length=100, default=0)
+    title = models.CharField(max_length=100, default='title')
     content = RichTextUploadingField('contents', default=0)
 
     def __str__(self):
@@ -78,7 +78,7 @@ class Service(models.Model):
 
 class ServiceImages(models.Model):
     image = models.ImageField(upload_to='media', blank=True)
-    title = models.CharField(max_length=25, default=0)
+    title = models.CharField(max_length=25, default='title')
     service = models.ForeignKey(Service, related_name='service_images', on_delete=models.CASCADE, default=0)
 
     def __str__(self):
