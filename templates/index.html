@@ -42,11 +42,17 @@
 
                 <input ng-model="email" type="email" placeholder="Email">
 
-                <input ng-model="phone" type="number" placeholder="Telefon">
-                <label><input ng-model="isChecked" type="checkbox">Zgadzam się z polityką Cookies oraz prywatności</label>
-                <textarea ng-model="message" placeholder="treść wiadomośći..."></textarea>
-                <input ng-click="sendMail()" type="submit" class="submit_button" value="wyślij"/>
+                <input ng-model="phone" type="number" placeholder="Telefon" required="">
+                <textarea ng-model="message" placeholder="treść wiadomośći..." required="" rows="6">
 
+                </textarea>
+                <label><input type="text" class="check_terms" readonly ng-click="checkTerms()">
+                    Zgadzam się z <a ui-sref="terms({'#': 'goToTop'})">polityką prywatności</a>
+                </label>
+                <input ng-click="sendMail()" type="submit" class="submit_button" value="wyślij" >
+
+                <div id="form_circle">
+                    <img class="contact_circle" src="../static/images/loading.gif"/></div>
             </form>
 
         </div>

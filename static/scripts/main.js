@@ -3,8 +3,6 @@ var app = angular.module('app', ['ngAnimate', 'ui.router', 'ngSanitize']);
 app.config(function ($httpProvider) {
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';
     $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
-
-
 });
 
 app.config(function ($stateProvider, $urlRouterProvider) {
@@ -23,6 +21,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             url: '/about',
             templateUrl: 'about.html',
             controller: 'aboutController'
+        })
+        .state('terms', {
+            url: '/terms',
+            templateUrl: 'terms.html'
         })
         .state('products', {
             url: '/products',
@@ -115,7 +117,6 @@ app.controller('servicesController', function ($scope, getDataService, $sce, $ht
         })
     };
 
-
 });
 
 app.controller('productController', function ($scope, getDataService, $stateParams) {
@@ -175,7 +176,22 @@ app.controller('miniproducstController', function ($scope, getDataService) {
 });
 
 app.controller('contactController', function ($scope, $http) {
+    $scope.isChecked = false;
+    $scope.checkTerms = function () {
+        if ($scope.isChecked === false) {
+            $(".check_terms").css({"background": "#7c8ea4"});
+            $(".submit_button").css({"display": "block"});
+            $scope.isChecked = true;
+        }
+        else {
+            $(".check_terms").css({"background": "white"});
+            $(".submit_button").css({"display": "none"});
+            $scope.isChecked = false;
+        }
+
+    };
     $scope.sendMail = function () {
+
         var url = '/slides/contact';
         var data = {
             name: $scope.name,
@@ -184,7 +200,13 @@ app.controller('contactController', function ($scope, $http) {
             message: $scope.message,
             isChecked: $scope.isChecked
         };
-        $http.post(url, data);
+        $http.post(url, data).then(success);
+        $(".contact_circle").css({'display': "block"});
+
+        function success() {
+            $(".contact_circle").css({'display': "none"});
+            $("form :input[type='text'],input[type='email'],input[type='number'], textarea").val('');
+          }
     }
 });
 
@@ -257,7 +279,6 @@ function directiveSliderFunction() {
             header.classList.remove("sticky");
             header.classList.remove("fixed");
         }
-
     }
 }
 
