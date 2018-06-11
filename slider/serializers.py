@@ -50,12 +50,12 @@ class ServiceImageSerializer(serializers.ModelSerializer):
 class ContactSerializer(serializers.Serializer):
     name = serializers.CharField(max_length=200, required=False)
     email = serializers.CharField(max_length=200, required=True)
-    phone = serializers.CharField(max_length=200, required=False)
+    phone_number = serializers.CharField(max_length=200, required=False)
     message = serializers.CharField(max_length=200, required=True)
     def save(self):
         self.name = self.validated_data['name']
         self.email = self.validated_data['email']
-        self.phone = self.validated_data['phone']
+        self.phone_number = self.validated_data['phone_number']
         self.message = self.validated_data['message']
 
 

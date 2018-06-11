@@ -60,7 +60,7 @@ class ContactSerializerData(generics.ListCreateAPIView):
             print (postserializer.data)
             form_name = data['name']
             form_email = data['email']
-            form_phone = data['phone']
+            form_phone = data['phone_number']
             form_message = data['message']
             form_subject = "Wiadomość od klienta ze strony slojewski.pl"
             form_all = "Email klienta: " + form_email + "\n" + "Telefon klienta: " + \

@@ -196,7 +196,7 @@ app.controller('contactController', function ($scope, $http) {
         var data = {
             name: $scope.name,
             email: $scope.email,
-            phone: $scope.phone,
+            phone_number: $scope.phone_number,
             message: $scope.message
         };
         $http.post(url, data).then(success);
