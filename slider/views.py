@@ -66,7 +66,7 @@ class ContactSerializerData(generics.ListCreateAPIView):
             form_all = "Email klienta: " + form_email + "\n" + "Telefon klienta: " + \
                        form_phone + "\n" + "\n" + "Treść wiadomości:" + "\n" + form_message
 
-            send_mail(form_name, form_all, form_email, ['jubiler@slojewski.pl'])
+            send_mail(form_name, form_all, form_email, ['bartosz.projects1@gmail.com'])
 
             print ('-----------------------')
             return Response(postserializer.data)

@@ -197,8 +197,7 @@ app.controller('contactController', function ($scope, $http) {
             name: $scope.name,
             email: $scope.email,
             phone: $scope.phone,
-            message: $scope.message,
-            isChecked: $scope.isChecked
+            message: $scope.message
         };
         $http.post(url, data).then(success);
         $(".contact_circle").css({'display': "block"});
