@@ -1,6 +1,6 @@
 from django.urls import path
 from .views import MiniSliderOfferIndividualData, MiniSliderOfferEngravingData, MiniSliderOfferRepairData, \
-    MainSliderData, AboutInformationsSerializerData, ServiceSerializerData, ServiceImagesSerializerData
+    MainSliderData, AboutInformationsSerializerData, ServiceSerializerData, ServiceImagesSerializerData, ContactSerializerData
 
 urlpatterns = [
     path('mini_slides_ind', MiniSliderOfferIndividualData.as_view()),
@@ -10,6 +10,7 @@ urlpatterns = [
     path('about_informations', AboutInformationsSerializerData.as_view()),
     path('services', ServiceSerializerData.as_view()),
     path('servicesimages', ServiceImagesSerializerData.as_view()),
+    path('contact', ContactSerializerData.as_view()),
 ]
 
 

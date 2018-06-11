@@ -47,6 +47,19 @@ class ServiceImageSerializer(serializers.ModelSerializer):
         model = ServiceImages
         fields = ('id','service_images', 'title', 'image')
 
+class ContactSerializer(serializers.Serializer):
+    name = serializers.CharField(max_length=200, required=False)
+    email = serializers.CharField(max_length=200, required=True)
+    phone = serializers.CharField(max_length=200, required=False)
+    message = serializers.CharField(max_length=200, required=False)
+    isChecked = serializers.BooleanField(required=True)
+    def save(self):
+        self.name = self.validated_data['name']
+        self.email = self.validated_data['email']
+        self.phone = self.validated_data['phone']
+        self.message = self.validated_data['message']
+        self.isChecked = self.validated_data['isChecked']
+
 
 
 

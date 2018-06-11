@@ -35,22 +35,22 @@
             <p>Godziny Otwarcia </p>
             <p>Pon. - Pt. 12-21 Sob. 12-15</p>
         </div>
-        <div id="contact_form">
+        <div id="contact_form" ng-controller="contactController">
 
             <form>
-                <input type="text" name="name" size="40" maxlength="255" required="" id="id_name"
-                       placeholder="Imie i nazwisko">
+                <input ng-model="name" type="text" placeholder="Imie i nazwisko">
 
-                <input type="text" name="email" size="40" required="" id="id_email" placeholder="Email">
+                <input ng-model="email" type="email" placeholder="Email">
 
-                <input type="number" name="phone" required="" id="id_phone" placeholder="Telefon">
-
-                <textarea name="msg_content" cols="40" rows="10" required="" id="id_msg_content"
-                          placeholder="treść wiadomośći..."></textarea>
-                <input type="submit" class="submit_button" value="wyślij">
+                <input ng-model="phone" type="number" placeholder="Telefon">
+                <label><input ng-model="isChecked" type="checkbox">Zgadzam się z polityką Cookies oraz prywatności</label>
+                <textarea ng-model="message" placeholder="treść wiadomośći..."></textarea>
+                <input ng-click="sendMail()" type="submit" class="submit_button" value="wyślij"/>
 
             </form>
+
         </div>
+
 
     </div>
     <div id="footer">

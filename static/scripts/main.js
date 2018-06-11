@@ -1,5 +1,12 @@
 var app = angular.module('app', ['ngAnimate', 'ui.router', 'ngSanitize']);
 
+app.config(function ($httpProvider) {
+    $httpProvider.defaults.xsrfCookieName = 'csrftoken';
+    $httpProvider.defaults.xsrfHeaderName = 'X-CSRFToken';
+
+
+});
+
 app.config(function ($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise('/home');
     $stateProvider
@@ -89,7 +96,7 @@ app.controller('aboutController', function ($scope, getDataService, $sce) {
     }
 });
 
-app.controller('servicesController', function ($scope, getDataService, $sce) {
+app.controller('servicesController', function ($scope, getDataService, $sce, $http) {
     getDataService.jsonData().services.then(ready_data);
 
     function ready_data(response) {
@@ -99,6 +106,16 @@ app.controller('servicesController', function ($scope, getDataService, $sce) {
             return $sce.trustAsHtml(response.data[snippet_number].content);
         };
     }
+
+    $scope.sendMail = function () {
+        $http({
+            method: 'POST',
+            url: '/slides/services',
+            data: {data: 'title'}
+        })
+    };
+
+
 });
 
 app.controller('productController', function ($scope, getDataService, $stateParams) {
@@ -154,6 +171,20 @@ app.controller('miniproducstController', function ($scope, getDataService) {
 
     function ready_data(response) {
         $scope.products = response.data;
+    }
+});
+
+app.controller('contactController', function ($scope, $http) {
+    $scope.sendMail = function () {
+        var url = '/slides/contact';
+        var data = {
+            name: $scope.name,
+            email: $scope.email,
+            phone: $scope.phone,
+            message: $scope.message,
+            isChecked: $scope.isChecked
+        };
+        $http.post(url, data);
     }
 });
 
