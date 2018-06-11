@@ -25,8 +25,8 @@ SECRET_KEY = 'ydya9d8+acsu0a%y#r2)mkec@&ay=9&ibsr(tlb*da-so3)6sx'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["test.slojewski.pl", "slojewski.pl", "www.slojewski.pl", '127.0.0.1', '127.0.0.1:8000' ]
-
+# ALLOWED_HOSTS = ["test.slojewski.pl", "slojewski.pl", "www.slojewski.pl", '127.0.0.1', '127.0.0.1:8000', '51.15.69.215' ]
+ALLOWED_HOSTS = ["*"]
 
 # Application definition
 
