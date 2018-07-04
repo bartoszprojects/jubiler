@@ -1,0 +1,30 @@
+{
+  "name": "jubiler",
+  "version": "1.0.0",
+  "description": "http://test.slojewski.pl/#!/home",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.7.2",
+    "angular-animate": "^1.7.2",
+    "angular-aria": "^1.7.2",
+    "angular-material": "^1.1.10",
+    "angular-messages": "^1.7.2",
+    "angular-sanitize": "^1.7.2",
+    "angular-ui-router": "^1.0.18",
+    "jquery": "^3.3.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bartoszprojects/jubiler.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/bartoszprojects/jubiler/issues"
+  },
+  "homepage": "https://github.com/bartoszprojects/jubiler#readme"
+}

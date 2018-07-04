@@ -9,11 +9,7 @@
   "homepage": "www.bartoszlech.pl",
 
   "dependencies": {
-    "angular": "~1.7.0",
-    "angular-material": "~1.1.9",
-    "angular-ui-router": "~0.3.1",
-    "angular-animate" : "~1.7.0",
-    "jquery": "",
-    "angular-sanitize": ""
+   "angular-animate" : ""
+
   }
 }

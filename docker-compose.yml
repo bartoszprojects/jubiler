@@ -9,8 +9,8 @@ services:
       - "80:8080"
     restart: always
     volumes:
-      - /code/jubiler/db.sqlite3
-      - code:/code/
+            #      - /code/jubiler/db.sqlite3
+      - .:/code/
         #    depends_on:
         #      - postgres
 
@@ -22,6 +22,6 @@ services:
         #    volumes:
         #      - pg_data:/var/lib/postgresql/data/
 
-volumes:
-    code:
+        #volumes:
+        #    code:
           #  pg_data:
