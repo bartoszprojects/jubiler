@@ -1,0 +1,14 @@
+{% verbatim %}
+
+    <div class="mini_products_slider">
+        <ul class="swap-animation" ng-animate-swap="currentPosition">
+            <li ng-repeat="product in visibleProducts" ui-sref="products.mini_product_details({ productId : product.id })">
+                <img src="{{ product.image }}" class="swap-animation" ng-animate-swap="currentPosition"/>
+            </li>
+        </ul>
+
+        <button class="slider-button slider-left" ng-click="previousSlide()"></button>
+        <button class="slider-button slider-right" ng-click="nextSlide()"></button>
+    </div>
+
+{% endverbatim %}

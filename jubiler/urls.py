@@ -41,7 +41,7 @@ urlpatterns = [
     path('slider.html', TemplateView.as_view(template_name="slider.html")),
     path('product.html', TemplateView.as_view(template_name="product.html")),
     path('terms.html', TemplateView.as_view(template_name="terms.html")),
+    path('image_modal.html', TemplateView.as_view(template_name="image_modal.html")),
+    path('mini_product.html', TemplateView.as_view(template_name="mini_product.html")),
+    path('mini_products_slider_template.html', TemplateView.as_view(template_name="mini_products_slider_template.html")),
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-
-
-
