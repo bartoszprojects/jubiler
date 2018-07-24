@@ -5,11 +5,8 @@
 
     <div class="other_products_display" ng-controller="miniproducstController">
         <h4>Wybrane produkty: </h4>
-        <ul>
-            <li ng-repeat="product in products">
-                <img src="{{ product.image }}"/>
-            </li>
-        </ul>
+
+        <mini-products-slider></mini-products-slider>
     </div>
 
     <div id="triangle" class="products_category" ng-controller="productsCategoryController">

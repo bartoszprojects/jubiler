@@ -300,6 +300,43 @@ app.directive('slider', function () {
         }
     }
 );
+app.directive('miniProductsSlider', function () {
+    return {
+        restrict: 'EA',
+        replace: true,
+        templateUrl: 'mini_products_slider_template.html',
+        controller: function ($scope, $interval, getDataService) {
+            const CHUNK_SIZE = 4;
+            $scope.products = [];
+            $scope.visibleProducts = [];
+            getDataService.jsonData().mini_products.then(ready_data);
+
+            $scope.currentPosition = 0;
+
+            $scope.nextSlide = function () {
+                if ($scope.currentPosition < $scope.products.length - CHUNK_SIZE) {
+                    $scope.currentPosition += CHUNK_SIZE;
+                } else {
+                    $scope.currentPosition = 0;
+                }
+                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + CHUNK_SIZE);
+            };
+            $scope.previousSlide = function () {
+                if ($scope.currentPosition > 0) {
+                    $scope.currentPosition -= CHUNK_SIZE;
+                } else {
+                    $scope.currentPosition = $scope.products.length - CHUNK_SIZE;
+                }
+                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + CHUNK_SIZE);
+            };
+
+            function ready_data(response) {
+                $scope.products = response.data;
+                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + CHUNK_SIZE);
+            }
+        }
+    };
+});
 
 app.controller('MiniSlider', function ($scope, getDataService) {
     getDataService.jsonData().mini_slides_ind.then(function (response) {
