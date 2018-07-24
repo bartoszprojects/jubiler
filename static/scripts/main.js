@@ -247,29 +247,30 @@ app.directive('slider', function () {
             },
             replace: true,
             templateUrl: 'slider.html',
-            controller: function ($scope, $interval) {
+            controller: function ($rootScope, $scope, $interval) {
 
+                $scope.openModalImage = $rootScope.openModalImage;
                 $scope.currentPosition = 0;
-                $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
+                $scope.image = $scope.data[$scope.currentPosition];
 
                 $scope.nextSlide = function () {
                     if ($scope.currentPosition < $scope.data.length - 1) {
                         $scope.currentPosition += 1;
 
-                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
+                        $scope.image = $scope.data[$scope.currentPosition];
 
                     } else {
                         $scope.currentPosition = 0;
-                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
+                        $scope.image = $scope.data[$scope.currentPosition];
                     }
                 };
                 $scope.previousSlide = function () {
                     if ($scope.currentPosition > 0) {
                         $scope.currentPosition -= 1;
-                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
+                        $scope.image = $scope.data[$scope.currentPosition];
                     } else {
                         $scope.currentPosition = $scope.data.length - 1;
-                        $scope.image = $scope.data[$scope.currentPosition].image_thumbnail;
+                        $scope.image = $scope.data[$scope.currentPosition];
                     }
                 };
             }
