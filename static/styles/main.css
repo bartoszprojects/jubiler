@@ -602,6 +602,9 @@ img {
 /*************** mini_products slider ******************/
 .mini_products_slider {
     position: relative;
+    height: 200px;
+}
+.mini_products_slider > ul.swap-animation {
     padding: 0 40px;
 }
 .mini_products_slider .slider-button {
@@ -623,3 +626,22 @@ img {
     background-image: url(../images/arrow-right.png);
     right: 0;
 }
+
+/*************** mini_products slider swipe animation ******************/
+.mini_products_slider .swap-animation {
+  position: absolute;
+  max-height: 100%;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  max-width: 100%; }
+  .mini_products_slider .swap-animation.ng-enter, .mini_products_slider .swap-animation.ng-leave {
+    transition: 0.3s linear all; }
+  .mini_products_slider .swap-animation.ng-enter {
+    opacity: 0; }
+  .mini_products_slider .swap-animation.ng-enter-active {
+    opacity: 1; }
+  .mini_products_slider .swap-animation.ng-leave {
+    opacity: 1; }
+  .mini_products_slider .swap-animation.ng-leave-active {
+    opacity: 0; }
