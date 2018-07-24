@@ -90,6 +90,14 @@ app.service('getDataService', ['$http', function ($http) {
     this.getproduct = function (product_id) {
         return $http.get('/products/product_details/' + product_id, {pk: product_id})
     }
+    this.getproducts = function(index, limit) {
+        return $http.get('/products/all', {
+            'params': {
+                'index': index,
+                'limit': limit,
+            }
+        });
+    };
 }]);
 
 app.controller('mainSliderController', function ($scope, getDataService, $rootScope) {
