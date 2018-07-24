@@ -13,16 +13,28 @@
             </span>
         </li>
         <li>
-            <span ui-sref-active="activeState">
+            <span class="dropdown" ui-sref-active="activeState">
                 <a ui-sref="products({'#': 'goToTop'})">Produkty</a>
+                <div class="dropdown-content">
+                    <a href="#!/products/products_category/0">Pierścionki</a>
+                    <a href="#!/products/products_category/1">Bransolety</a>
+                    <a href="#!/products/products_category/2">Kolczyki</a>
+                    <a href="#!/products/products_category/3">Obrączki ślubne</a>
+                    <a href="#!/products/products_category/4">Zawieszki</a>
+                    <a href="#!/products/products_category/5">Pierścionki zaręczynowe</a>
+                </div>
             </span>
         </li>
-        <li><span ui-sref-active="activeState">
+        <li>
+            <span ui-sref-active="activeState">
                 <a ui-sref="services({'#': 'goToTop'})">Usługi</a>
             </span>
         </li>
-
-        <li><a ui-sref="home({'#': 'contact'})">Kontakt</a></li>
+        <li>
+            <span ui-sref-active="activeState">
+                <a ui-sref="home({'#': 'contact'})">Kontakt</a>
+            </span>
+        </li>
     </ul>
 </nav>
 
