@@ -62,6 +62,11 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'product.html',
             controller: 'productController'
         })
+        .state('products.mini_product_details', {
+            url: '/mini_product_details/:productId',
+            templateUrl: 'mini_product.html',
+            controller: 'miniProductController'
+        })
 });
 
 app.service('getDataService', ['$http', function ($http) {
@@ -89,6 +94,9 @@ app.service('getDataService', ['$http', function ($http) {
     };
     this.getproduct = function (product_id) {
         return $http.get('/products/product_details/' + product_id, {pk: product_id})
+    }
+    this.getMiniProduct = function (product_id) {
+        return $http.get('/products/mini_product_details/' + product_id, {pk: product_id})
     }
     this.getproducts = function(index, limit) {
         return $http.get('/products/all', {
@@ -155,6 +163,13 @@ app.controller('productController', function ($scope, getDataService, $statePara
             $("#image_animation").hide().fadeIn();
             $scope.image_in_product = $scope.large_image[number]
         }
+    }
+});
+app.controller('miniProductController', function ($scope, getDataService, $stateParams) {
+    getDataService.getMiniProduct($stateParams.productId).then(ready_data);
+
+    function ready_data(response) {
+        $scope.product = response.data;
     }
 });
 

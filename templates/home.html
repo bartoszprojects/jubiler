@@ -70,7 +70,7 @@
 
 <div class="other_products_display float_left_wrapper" ng-controller="miniproducstController">
     <ul>
-        <li ng-repeat="product in products">
+        <li ng-repeat="product in products" ui-sref="products.mini_product_details({ productId : product.id })">
             <img ng-src="{{ product.image }}"/>
         </li>
 
