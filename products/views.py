@@ -7,6 +7,17 @@ class ProductsView(generics.ListAPIView):
     queryset = MainProducts.objects.all()
     serializer_class = MainProductsSerializer
 
+    def get(self, request, format=None):
+        if request.GET.get('index') and request.GET.get('limit'):
+            index = int(request.GET.get('index'))
+            limit = int(request.GET.get('limit'))
+            queryset = MainProducts.objects.all()[index: index + limit]
+        else:
+            queryset = self.get_queryset()
+        serialized_queryset = MainProductsSerializer(queryset, many=True)
+
+        return Response(serialized_queryset.data)
+
 class MiniProductsView(generics.ListAPIView):
     queryset = ProductsMini.objects.all()
     serializer_class = MiniProductsSerializer

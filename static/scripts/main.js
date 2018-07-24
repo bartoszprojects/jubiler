@@ -151,13 +151,21 @@ app.controller('productController', function ($scope, getDataService, $statePara
 });
 
 app.controller('productsController', function ($scope, getDataService, $stateParams) {
-    getDataService.jsonData().products.then(ready_data);
+    var prodsCtrl = this;
+    const PRODUCTS_CHUNK_SIZE = 20;
+    prodsCtrl.products = [];
     var element = document.getElementById("active_products");
     element.classList.add("active_all_products");
 
+    prodsCtrl.loadMoreProducts = function(index) {
+        getDataService.getproducts(index, PRODUCTS_CHUNK_SIZE).then(ready_data);
+    };
+    // Fill products array with an initial set of products
+    prodsCtrl.loadMoreProducts(0);
+
     function ready_data(response) {
-        $scope.products = response.data;
-        $scope.loadingImage = '../static/images/loading.gif';
+        prodsCtrl.products = prodsCtrl.products.concat(response.data);
+        prodsCtrl.loadingImage = '../static/images/loading.gif';
     }
 });
 

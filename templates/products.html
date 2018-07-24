@@ -27,9 +27,9 @@
 
     </div>
     <ui-view>
-        <div class="products sub_products" ng-controller="productsController">
+        <div class="products sub_products" ng-controller="productsController as prodsCtrl">
             <ul>
-                <li ng-repeat="product in products">
+                <li ng-repeat="product in prodsCtrl.products">
                     <a ui-sref="products.product_details({ productId : product.id, '#': 'triangle' })" class="product_wrapper">
                         <p class="product_title">{{ product.title|limitTo: 30 }}</p>
                         <img class="product_image" src="{{ product.to_product.image.small[0] }}"/>
@@ -38,6 +38,7 @@
 
                 </li>
             </ul>
+            <button style="margin: 15px auto; display: block;" ng-if="prodsCtrl.products.length > 0" ng-click="prodsCtrl.loadMoreProducts(prodsCtrl.products.length - 1)">More ...</button>
         </div>
     </ui-view>
 
