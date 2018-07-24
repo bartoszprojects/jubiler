@@ -176,6 +176,9 @@ app.controller('miniproducstController', function ($scope, getDataService) {
 });
 
 app.controller('contactController', function ($scope, $http) {
+    $scope.form_data = {
+        'image': null
+    };
     $scope.isChecked = false;
     $scope.checkTerms = function () {
         if ($scope.isChecked === false) {
@@ -199,6 +202,9 @@ app.controller('contactController', function ($scope, $http) {
             phone_number: $scope.phone_number,
             message: $scope.message
         };
+        if ($scope.form_data.image != null) {
+            data.image = $scope.form_data.image;
+        }
         $http.post(url, data).then(success);
         $(".contact_circle").css({'display': "block"});
 
