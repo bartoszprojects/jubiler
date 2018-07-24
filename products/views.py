@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from rest_framework import generics
+from rest_framework.response import Response
 from . serializers import MainProductsSerializer, MiniProductsSerializer, ProductsCategorySerializer, ProductsImagesSerializer
 from . models import MainProducts, ProductsMini, ProductsCategory, ProductsImages
 
@@ -31,8 +32,12 @@ class ProductsImagesView(generics.ListAPIView):
     serializer_class = ProductsImagesSerializer
 
 class ProductDetail(generics.RetrieveAPIView):
-        queryset = MainProducts.objects.all()
-        serializer_class = MainProductsSerializer
+    queryset = MainProducts.objects.all()
+    serializer_class = MainProductsSerializer
+
+    def get_object(self):
+        return MainProducts.objects.get(id=self.kwargs.get("pk"))
+
 class MiniProductDetail(generics.RetrieveAPIView):
     queryset = ProductsMini.objects.all()
     serializer_class = MiniProductsSerializer
