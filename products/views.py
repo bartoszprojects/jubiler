@@ -22,6 +22,9 @@ class ProductsImagesView(generics.ListAPIView):
 class ProductDetail(generics.RetrieveAPIView):
         queryset = MainProducts.objects.all()
         serializer_class = MainProductsSerializer
+class MiniProductDetail(generics.RetrieveAPIView):
+    queryset = ProductsMini.objects.all()
+    serializer_class = MiniProductsSerializer
 
-        def get_object(self):
-            return MainProducts.objects.get(id=self.kwargs.get("pk"))
+    def get_object(self):
+        return ProductsMini.objects.get(id=self.kwargs.get("pk"))
