@@ -7,8 +7,8 @@
             </li>
         </ul>
 
-        <button class="slider-button slider-left" ng-click="previousSlide()"></button>
-        <button class="slider-button slider-right" ng-click="nextSlide()"></button>
+        <button class="slider-button slider-left" ng-style="{'opacity': (currentPosition > 0) ? '1.0' : '0.35'}" ng-click="previousSlide()"></button>
+        <button class="slider-button slider-right" ng-style="{'opacity': (currentPosition < products.length - CHUNK_SIZE) ? '1.0' : '0.35'}" ng-click="nextSlide()"></button>
     </div>
 
 {% endverbatim %}

@@ -306,33 +306,28 @@ app.directive('miniProductsSlider', function () {
         replace: true,
         templateUrl: 'mini_products_slider_template.html',
         controller: function ($scope, $interval, getDataService) {
-            const CHUNK_SIZE = 4;
+            $scope.CHUNK_SIZE = 3;
+            $scope.currentPosition = 0;
             $scope.products = [];
             $scope.visibleProducts = [];
             getDataService.jsonData().mini_products.then(ready_data);
 
-            $scope.currentPosition = 0;
-
             $scope.nextSlide = function () {
-                if ($scope.currentPosition < $scope.products.length - CHUNK_SIZE) {
-                    $scope.currentPosition += CHUNK_SIZE;
-                } else {
-                    $scope.currentPosition = 0;
+                if ($scope.currentPosition < $scope.products.length - $scope.CHUNK_SIZE) {
+                    $scope.currentPosition += 1;
+                    $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + $scope.CHUNK_SIZE);
                 }
-                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + CHUNK_SIZE);
             };
             $scope.previousSlide = function () {
                 if ($scope.currentPosition > 0) {
-                    $scope.currentPosition -= CHUNK_SIZE;
-                } else {
-                    $scope.currentPosition = $scope.products.length - CHUNK_SIZE;
+                    $scope.currentPosition -= 1;
+                    $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + $scope.CHUNK_SIZE);
                 }
-                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + CHUNK_SIZE);
             };
 
             function ready_data(response) {
                 $scope.products = response.data;
-                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + CHUNK_SIZE);
+                $scope.visibleProducts = $scope.products.slice($scope.currentPosition, $scope.currentPosition + $scope.CHUNK_SIZE);
             }
         }
     };
