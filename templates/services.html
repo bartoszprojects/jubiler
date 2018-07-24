@@ -9,7 +9,7 @@
                 <ul>
 
                     <li ng-repeat="image in element.images">
-                        <img src="{{ image }}"/>
+                        <img src="{{ image }}" ng-click="openModalImage(image)"/>
                     </li>
                 </ul>
             </div>

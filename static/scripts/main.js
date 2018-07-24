@@ -1,4 +1,20 @@
-var app = angular.module('app', ['ngAnimate', 'ui.router', 'ngSanitize']);
+var app = angular.module('app', ['ngAnimate', 'ui.router', 'ui.bootstrap', 'ngSanitize']);
+
+app.run(function($rootScope, $uibModal) {
+    $rootScope.openModalImage = function(imageSrc) {
+        $uibModal.open({
+            templateUrl: "image_modal.html",
+            resolve: {
+                imageSrcToUse: function () {
+                    return imageSrc;
+                }
+            },
+            controller: ["$scope", "imageSrcToUse", function($scope, imageSrcToUse) {
+                $scope.ImageSrc = imageSrcToUse;
+            }]
+        });
+    };
+});
 
 app.config(function ($httpProvider) {
     $httpProvider.defaults.xsrfCookieName = 'csrftoken';

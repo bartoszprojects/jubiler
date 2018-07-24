@@ -5,7 +5,7 @@
     <div class="single_product">
         <div class="single_product_container">
             <p class="product_title">{{ product.title }}</p>
-            <img id="image_animation" class="product_image" src="{{ image_in_product }}"/>
+            <img id="image_animation" class="product_image" src="{{ image_in_product }}" ng-click="openModalImage(image_in_product)"/>
             <div class="other_products_display">
                 <ul ng-if="small_image.length > 1">
                     <li class="hand-pointer" ng-repeat="img in small_image">
@@ -22,6 +22,3 @@
 </div>
 
 {% endverbatim %}
-
-
-
