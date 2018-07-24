@@ -116,7 +116,8 @@ img {
   background-color: rgba(0, 0, 0, 0.6);
   top: 100%;
   width: 100%;
-  z-index: 9999;
+  /* z-index: 9999; */
+  z-index: 5;
   height: 40px; }
 
 .fixed {
@@ -551,6 +552,27 @@ img {
     padding: 40px 100px 40px 100px; }
 
 /*# sourceMappingURL=main.css.map */
+
+
+/*************** modal ******************/
+.modal-dialog {
+    width: auto;
+}
+@media (min-width: 768px) {
+    .modal-dialog {
+        max-width: 60vw;
+    }
+}
+.modal-body {
+    padding: 0;
+}
+.modalImage .image-wrapper {
+    text-align: center;
+}
+.modalImage .image-description {
+    text-align: center;
+    margin-top: 10px;
+}
 
 /*************** dropdown ******************/
 .dropdown {
