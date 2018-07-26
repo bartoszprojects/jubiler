@@ -3,7 +3,7 @@
     <div class="mini_products_slider">
         <ul class="swap-animation" ng-animate-swap="currentPosition">
             <li ng-repeat="product in visibleProducts" ui-sref="products.mini_product_details({ productId : product.id })">
-                <img src="{{ product.image }}" class="swap-animation" ng-animate-swap="currentPosition"/>
+                <img src="{{ product.image }}" class="swap-animation mini_products_hover" ng-animate-swap="currentPosition"/>
             </li>
         </ul>
 
