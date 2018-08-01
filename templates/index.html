@@ -40,7 +40,8 @@
         <div id="contact_form" ng-controller="contactController">
 
             <form>
-                <input fileread="form_data.image" type="file" accept="image/*" placeholder="Wybierz zdjęcie">
+                <input id="file" class="inputfile" fileread="form_data.image" type="file" accept="image/*" placeholder="Wybierz zdjęcie">
+                <label for="file">Wybierz plik</label>
 
                 <input ng-model="name" type="text" placeholder="Imie i nazwisko">
 
