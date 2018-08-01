@@ -4,6 +4,21 @@ body, p, a, input, textarea, button
 *:focus
   outline: 0 !important
 
+
+
+
+
+button
+    cursor: pointer
+.offer .swap-animation, .other_products_display li, .single_product img
+    cursor: zoom-in
+.offer .swap-animation:hover, .other_products_display li:hover, .single_product img:hover
+    box-shadow: 0px 0px 1px 1px #a7b1be
+
+
+
+
+
 a
   color: black
   text-decoration: none
@@ -95,7 +110,7 @@ img
   .slide_content
     width: 100%
     position: relative
-    height: 170px
+    height: 210px
     #slider_logo
       width: 170px
       position: absolute
@@ -387,6 +402,11 @@ img
   .products_button
     width: 100%
     display: flex
+  .more_button:hover
+    background: #7c8ea3
+    border: 0.6px solid #7c8ea4
+    color: white
+
   button
     margin: auto
     background: rgba(255,255,255,0.8)
@@ -565,157 +585,145 @@ img
     padding: 40px 100px 40px 100px
 
 /*************** Image Modal ******************/
-.modal-open .modal {
-    display: flex !important;
-    overflow-x: hidden;
-    overflow-y: auto;
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 40px 0;
-}
-.fade.in {
-    opacity: 1;
-}
-.modal {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 1050;
-    display: none;
-    overflow: hidden;
-    -webkit-overflow-scrolling: touch;
-    outline: 0;
-}
-.fade {
-    opacity: 0;
-    -webkit-transition: opacity .15s linear;
-    -o-transition: opacity .15s linear;
-    transition: opacity .15s linear;
-}
 
-.modal-dialog {
-    position: relative;
-    margin: auto;
-    width: auto;
-    background-color: white;
-    border-radius: 5px;
-}
-@media (min-width: 768px) {
-    .modal-dialog {
-        max-width: 60vw;
-        margin: auto;
-    }
-}
+.modal-open .modal
+  display: flex !important
+  overflow-x: hidden
+  overflow-y: auto
+  background-color: rgba(0, 0, 0, 0.8)
+  padding: 40px 0
 
-.modal-header {
-    display: flex;
-    padding: 15px;
-    border-bottom: 1px solid #e5e5e5;
-}
-button.close {
-    -webkit-appearance: none;
-    padding: 0;
-    cursor: pointer;
-    color: #000;
-    background: 0 0;
-    border: 0;
-    float: right;
-    font-size: 21px;
-    font-weight: 700;
-    line-height: 1;
-    text-shadow: 0 1px 0 #fff;
-    filter: alpha(opacity=20);
-    opacity: .2;
-    margin-left: auto;
-}
-.pull-right {
-    float: right!important;
-}
+.fade.in
+  opacity: 1
 
-.modal-body {
-    position: relative;
-}
-.modalImage .image-wrapper {
-    text-align: center;
-}
-.modalImage .image-wrapper img {
-    vertical-align: middle;
-    width: 60vw;
-}
-.modalImage .image-description {
-    text-align: center;
-    margin-top: 10px;
-}
+.modal
+  position: fixed
+  top: 0
+  right: 0
+  bottom: 0
+  left: 0
+  z-index: 1050
+  display: none
+  overflow: hidden
+  -webkit-overflow-scrolling: touch
+  outline: 0
 
-/*************** dropdown ******************/
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 180px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-    z-index: 1;
-}
-.dropdown-content a {
-    color: #916F45 !important;
-    padding: 0 10px 0 10px;
-    text-decoration: none;
-    display: block;
-}
-.dropdown-content a:hover {background-color: #f1f1f1}
+.fade
+  opacity: 0
+  -webkit-transition: opacity .15s linear
+  -o-transition: opacity .15s linear
+  transition: opacity .15s linear
 
-.dropdown:hover .dropdown-content {
-    display: block;
-}
+.modal-dialog
+  position: relative
+  margin: auto
+  width: auto
+  background-color: white
+  border-radius: 5px
 
-/*************** mini_products slider ******************/
-.mini_products_slider {
-    position: relative;
-    height: 200px;
-}
-.mini_products_slider > ul.swap-animation {
-    padding: 0 40px;
-}
-.mini_products_slider .slider-button {
-    height: 35px;
-    width: 35px;
-    border: none;
-    background-color: transparent;
-    background-repeat: no-repeat;
-    background-size: 90%;
-    cursor: pointer;
-    position: absolute;
-    top: calc(50% - 17.5px);
-}
-.mini_products_slider .slider-left {
-    background-image: url(../images/arrow-left.png);
-    left: 0;
-}
-.mini_products_slider .slider-right {
-    background-image: url(../images/arrow-right.png);
-    right: 0;
-}
+@media (min-width: 768px)
+  .modal-dialog
+    max-width: 60vw
+    margin: auto
 
-/*************** mini_products slider swipe animation ******************/
-.mini_products_slider .swap-animation {
-  position: absolute;
-  max-height: 100%;
-  left: 0;
-  right: 0;
-  margin: 0 auto;
-  max-width: 100%; }
-  .mini_products_slider .swap-animation.ng-enter, .mini_products_slider .swap-animation.ng-leave {
-    transition: 0.3s linear all; }
-  .mini_products_slider .swap-animation.ng-enter {
-    opacity: 0; }
-  .mini_products_slider .swap-animation.ng-enter-active {
-    opacity: 1; }
-  .mini_products_slider .swap-animation.ng-leave {
-    opacity: 1; }
-  .mini_products_slider .swap-animation.ng-leave-active {
-    opacity: 0; }
+.modal-header
+  display: flex
+  padding: 15px
+  border-bottom: 1px solid #e5e5e5
+
+button.close
+  -webkit-appearance: none
+  padding: 0
+  cursor: pointer
+  color: #000
+  background: 0 0
+  border: 0
+  float: right
+  font-size: 21px
+  font-weight: 700
+  line-height: 1
+  text-shadow: 0 1px 0 #fff
+  filter: alpha(opacity = 20)
+  opacity: .2
+  margin-left: auto
+
+.pull-right
+  float: right !important
+
+.modal-body
+  position: relative
+
+.modalImage
+  .image-wrapper
+    text-align: center
+    img
+      vertical-align: middle
+      width: 60vw
+  .image-description
+    text-align: center
+    margin-top: 10px
+
+/*************** dropdown *****************
+
+.dropdown
+  position: relative
+  display: inline-block
+
+.dropdown-content
+  display: none
+  position: absolute
+  background-color: #f9f9f9
+  min-width: 180px
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2)
+  z-index: 1
+  a
+    color: #916F45 !important
+    padding: 0 10px 0 10px
+    text-decoration: none
+    display: block
+    &:hover
+      background-color: #f1f1f1
+
+.dropdown:hover .dropdown-content
+  display: block
+
+/*************** mini_products slider *****************
+
+.mini_products_slider
+  position: relative
+  height: 200px
+  > ul.swap-animation
+    padding: 0 40px
+  .slider-button
+    height: 35px
+    width: 35px
+    border: none
+    background-color: transparent
+    background-repeat: no-repeat
+    background-size: 90%
+    cursor: pointer
+    position: absolute
+    top: calc(50% - 17.5px)
+  .slider-left
+    background-image: url(../images/arrow-left.png)
+    left: 0
+  .slider-right
+    background-image: url(../images/arrow-right.png)
+    right: 0
+  .swap-animation
+    position: absolute
+    max-height: 100%
+    left: 0
+    right: 0
+    margin: 0 auto
+    max-width: 100%
+    &.ng-enter, &.ng-leave
+      transition: 0.3s linear all
+    &.ng-enter
+      opacity: 0
+    &.ng-enter-active, &.ng-leave
+      opacity: 1
+    &.ng-leave-active
+      opacity: 0
+
+/*************** mini_products slider swipe animation *****************
