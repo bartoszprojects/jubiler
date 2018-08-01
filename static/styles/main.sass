@@ -584,6 +584,36 @@ img
   .about_content
     padding: 40px 100px 40px 100px
 
+
+/*************** Contact Form ******************/
+.inputfile {
+    width: 0.1px !important;
+	height: 0.1px;
+	opacity: 0;
+	overflow: hidden;
+	position: absolute;
+	z-index: -1;
+}
+.inputfile + label {
+    background: #d8c1ba;
+    padding: 10px 25px 10px 25px;
+    border: 0.6px solid #c7b0a9;
+    color: white;
+    font-weight: bold !important;
+    width: calc(100% - 50px) !important;
+    cursor: pointer;
+}
+
+.inputfile:focus + label,
+.inputfile + label:hover {
+    background-color: #c3aca5;
+}
+.inputfile:focus + label {
+	outline: 1px dotted #000;
+	outline: -webkit-focus-ring-color auto 5px;
+}
+
+
 /*************** Image Modal ******************/
 
 .modal-open .modal
