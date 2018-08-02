@@ -38,6 +38,10 @@ app.config(function ($stateProvider, $urlRouterProvider) {
             templateUrl: 'about.html',
             controller: 'aboutController'
         })
+        .state('contact', {
+            url: '/contact',
+            templateUrl: 'contact.html'
+        })
         .state('terms', {
             url: '/terms',
             templateUrl: 'terms.html'
