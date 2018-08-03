@@ -310,7 +310,7 @@ app.directive('miniProductsSlider', function () {
         replace: true,
         templateUrl: 'mini_products_slider_template.html',
         controller: function ($scope, $interval, getDataService) {
-            $scope.CHUNK_SIZE = 3;
+            $scope.CHUNK_SIZE = 5;
             $scope.currentPosition = 0;
             $scope.products = [];
             $scope.visibleProducts = [];
